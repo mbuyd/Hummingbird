@@ -18,11 +18,11 @@ table = open('FedsDataCenter-' + date + '.csv', 'w', newline='')
 writer = csv.writer(table, delimiter=',')
 writer.writerow(['name', 'grade', 'plan', 'salary', 'bonus', 'agency', 'location', 'occupation', 'fy'])
 
-start = 0
+start = 384
 end = 21083
 pages = 21083
 
-for i in range(0, end):
+for i in range(start, end):
     print("Downloading page", i + 1, "of", pages,"..." ,end=" ")
     url = url_prepend + str(i * 100) + url_append
     response = requests.request("GET", url, headers=headers, data = payload)
