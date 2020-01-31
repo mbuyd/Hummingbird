@@ -36,9 +36,26 @@ Source:  https://data.cityofnewyork.us/City-Government/Citywide-Payroll-Data-Fis
 
 Source:  https://data.nj.gov/payroll_results?year_start=&year_end=&lastname=&firstname=&dept-agency=&title=&erg=&salary_low=&salary_high=&ot= 
 
+**MONTGOMERY_OPENDATA_PAYROLL_2016.csv**
+
+Source:  https://data.montgomerycountymd.gov/Human-Resources/Employee-Salaries-2016/xj3h-s2i7 
+
+Has gender column!
+
+MONTGOMERY_OPENDATA_PAYROLL_2015.csv:  https://catalog.data.gov/dataset/employee-salaries-2015 
+
+MONTGOMERY_OPENDATA_PAYROLL_2014.csv:  https://catalog.data.gov/dataset/employee-salaries-2014 
+
+MONTGOMERY_OPENDATA_PAYROLL_2017.csv:  https://catalog.data.gov/dataset/employee-salaries-2017 
+
 | Table of CSVs coming soon |      |      |
 | ------------------------- | ---- | ---- |
 |                           |      |      |
 |                           |      |      |
 |                           |      |      |
 
+More links I didn't bother with:
+
+Salary data of MLB: https://www.dolthub.com/repositories/Liquidata/baseball-databank/data/master/Salaries 
+
+Maybe a good resource:  https://www.kaggle.com/ 
