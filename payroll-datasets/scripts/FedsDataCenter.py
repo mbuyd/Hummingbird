@@ -1,4 +1,5 @@
 import csv
+from datetime import datetime
 import requests
 from time import sleep
 
@@ -9,13 +10,19 @@ url_append = "&iDisplayLength=100"
 payload = {}
 headers= {}
 
+today = datetime.today()
+date = today.year + "-" + today.month + "-" + today.day + "-" + today.hour + today.minute
+table = open('FedsDataCenter-' + date + '.csv', 'w', newline='')
+writer = csv.writer(table, delimiter=',', quotechar='|')
+writer.writerow(['name', 'grade', 'plan', 'salary', 'bonus', 'agency', 'location', 'occupation', 'fy'])
+
 # pages = 21083
 pages = 3
 
 for i in range(pages):
     print("Downloading page", i + 1, "of", pages,"..." ,end=" ")
     url = url_prepend + str(i) + url_append
-    # response = requests.request("GET", url, headers=headers, data = payload)
+    response = requests.request("GET", url, headers=headers, data = payload)
     print("Done!")
     if (i + 1) % 1000 == 0:
         print("Sleeping for a minute...")
