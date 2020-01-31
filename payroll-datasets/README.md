@@ -32,6 +32,10 @@ Contains the following table:
 
 Source:  https://data.cityofnewyork.us/City-Government/Citywide-Payroll-Data-Fiscal-Year-/k397-673e 
 
+**NJSTATE_OPENDATA_PAYROLL.csv**
+
+Source:  https://data.nj.gov/payroll_results?year_start=&year_end=&lastname=&firstname=&dept-agency=&title=&erg=&salary_low=&salary_high=&ot= 
+
 | Table of CSVs coming soon |      |      |
 | ------------------------- | ---- | ---- |
 |                           |      |      |
