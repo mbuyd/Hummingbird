@@ -1,5 +1,6 @@
 import csv
 from datetime import datetime
+import json
 import requests
 from time import sleep
 
@@ -11,25 +12,31 @@ payload = {}
 headers= {}
 
 today = datetime.today()
-date = today.year + "-" + today.month + "-" + today.day + "-" + today.hour + today.minute
+date = str(today.year) + "-" + str(today.month) + \
+    "-" + str(today.day) + "-" + str(today.hour) + str(today.minute)
 table = open('FedsDataCenter-' + date + '.csv', 'w', newline='')
-writer = csv.writer(table, delimiter=',', quotechar='|')
+writer = csv.writer(table, delimiter=',')
 writer.writerow(['name', 'grade', 'plan', 'salary', 'bonus', 'agency', 'location', 'occupation', 'fy'])
 
-# pages = 21083
-pages = 3
+pages = 21083
+# pages = 3
 
 for i in range(pages):
     print("Downloading page", i + 1, "of", pages,"..." ,end=" ")
     url = url_prepend + str(i) + url_append
     response = requests.request("GET", url, headers=headers, data = payload)
+    data = response.text.encode('utf8')
+    parsed = json.loads(data)
+    for item in parsed['aaData']:
+        # print(item)
+        writer.writerow(item)
     print("Done!")
     if (i + 1) % 1000 == 0:
-        print("Sleeping for a minute...")
-        sleep(5)
+        print("Sleeping for a half minute...")
+        sleep(30)
         continue
     if (i + 1) % 100 == 0:
-        print("Sleeping for a half minute...")
+        print("Sleeping for a 5 seconds...")
         sleep(5)
         continue
 
