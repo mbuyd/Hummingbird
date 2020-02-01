@@ -1,6 +1,8 @@
 import Layout from '../components/Layout';
 import useSWR from 'swr';
 
+//import 'bootstrap/dist/css/bootstrap.min.css';
+
 function fetcher(url) {
     return fetch(url).then(r => r.json());
 }
