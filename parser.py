@@ -48,6 +48,6 @@ print(filtergroup(test_data, "race")("asian"))
 
 
 
-def mean(sorted_data):
+def mean_data(sorted_data):
     return {grouper: (sum(values)/len(values)) for grouper, values in sorted_test_data.items() }
-print(mean(test_data))
+print(mean_data(test_data))
