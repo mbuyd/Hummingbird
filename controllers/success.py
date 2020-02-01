@@ -8,5 +8,5 @@ def upload_file():
    if request.method == 'POST':
       f = request.files['file']
       f.save('uploads/' + f.filename)
-      csvparser.parseCSV('uploads/' + f.filename)
+      csv_data = csvparser.parseCSV('uploads/' + f.filename)
       return render_template('forms/success.html', name = f.filename)
