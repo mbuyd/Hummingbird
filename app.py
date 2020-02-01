@@ -46,6 +46,7 @@ app.register_blueprint(home.home)
 app.register_blueprint(about.about)
 app.register_blueprint(upload.upload)
 app.register_blueprint(success.success)
+app.register_blueprint(dashboard.dashboard)
 
 @app.route('/login')
 def login():
