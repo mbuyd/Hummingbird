@@ -2,26 +2,26 @@ import Layout from '../components/Layout';
 import useSWR from 'swr';
 
 function fetcher(url) {
-  return fetch(url).then(r => r.json());
+    return fetch(url).then(r => r.json());
 }
 
 export default function Index() {
-  const { data, error } = useSWR('/api/randomQuote', fetcher);
-  // The following line has optional chaining, added in Next.js v9.1.5,
-  // is the same as `data && data.author`
-  const author = data?.author;
-  let quote = data?.quote;
+    const { data, error } = useSWR('/api/randomQuote', fetcher);
+    // The following line has optional chaining, added in Next.js v9.1.5,
+    // is the same as `data && data.author`
+    const author = data?.author;
+    let quote = data?.quote;
 
-  if (!data) quote = 'Loading...';
-  if (error) quote = 'Failed to fetch the quote.';
+    if (!data) quote = 'Loading...';
+    if (error) quote = 'Failed to fetch the quote.';
 
-  return (
-      <Layout>
-    <main className="center">
-      <div className="quote">{quote}</div>
-      {author && <span className="author">- {author}</span>}
+    return (
+        <Layout>
+            <main className="center">
+                <div className="quote">{quote}</div>
+                {author && <span className="author">- {author}</span>}
 
-      <style jsx>{`
+                <style jsx>{`
         main {
           width: 90%;
           max-width: 900px;
@@ -40,7 +40,7 @@ export default function Index() {
           font-size: 20px;
         }
       `}</style>
-    </main>
-    </Layout>
-  );
+            </main>
+        </Layout>
+    );
 }
