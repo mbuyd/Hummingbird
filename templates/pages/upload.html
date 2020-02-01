@@ -6,5 +6,10 @@
   <h1>Upload</h1>
 </div>
 <p class="lead">Putting a box here for uploading files...</p>
+<form action="/success" method="post" enctype="multipart/form-data">
+  <input type="file" name="file" />
+  <input type="submit" value="Upload">
+</form>
+
 
 {% endblock %}

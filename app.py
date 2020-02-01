@@ -52,7 +52,14 @@ def about():
 
 @app.route('/upload')
 def upload():
-    return render_template('forms/upload.html')
+    return render_template('pages/upload.html')
+
+@app.route('/success', methods = ['GET', 'POST'])
+def upload_file():
+   if request.method == 'POST':
+      f = request.files['file']
+      f.save(f.filename)
+      return render_template('forms/success.html')
 
 @app.route('/login')
 def login():
