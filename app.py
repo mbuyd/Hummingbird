@@ -58,7 +58,7 @@ def upload():
 def upload_file():
    if request.method == 'POST':
       f = request.files['file']
-      f.save(f.filename)
+      f.save('uploads/' + f.filename)
       return render_template('forms/success.html')
 
 @app.route('/login')
