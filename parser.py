@@ -32,3 +32,12 @@ def sort_by(data, column_sort, column_group ):
         else:
             sorted_data[grouper] += [sort_value]
     return sorted_data
+
+test_data = [['money', 'race'], [-100, 'white'], [25000, 'asian'], [26000, 'asian'], [1000000, 'egyptian'], [1000, 'white']]
+sorted_test_data = sort_by([['money', 'race'], [-100, 'white'], [25000, 'asian'], [26000, 'asian'], [1000000, 'egyptian'], [1000, 'white']], "money", "race")
+print(list(filter(lambda datapoint: datapoint[1] == 'white', test_data)))
+
+
+def mean(sorted_data):
+    return {grouper: (sum(values)/len(values)) for grouper, values in sorted_test_data.items() }
+print(mean(test_data))
