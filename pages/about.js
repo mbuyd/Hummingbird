@@ -1,9 +1,9 @@
-import Header from '../components/Header';
+import Layout from '../components/Layout';
 
-return (
-    <div>
-        <Header />
-        <p>This is the about page</p>
-    </div>
-);
+export default function About() {
+  return (
+    <Layout>
+      <p>This is the about page</p>
+    </Layout>
+  );
 }
