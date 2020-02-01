@@ -5,4 +5,4 @@ dashboard = Blueprint('dashboard', __name__,
 
 @dashboard.route('/dashboard')
 def show():
-    return render_template('pages/dashboard.html')
+    return render_template('pages/dashboard.html', size = 500, mfRatio = 99, meanTc = 5000000)
