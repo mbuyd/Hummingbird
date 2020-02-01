@@ -2,20 +2,26 @@
 # Imports
 #----------------------------------------------------------------------------#
 
-from flask import Flask, render_template, request
+from flask import Flask, Blueprint, render_template, request
 # from flask.ext.sqlalchemy import SQLAlchemy
 import logging
 from logging import Formatter, FileHandler
 from forms import *
 import os
+
 from lib import *
 from controllers import *
+import parser
 
 #----------------------------------------------------------------------------#
 # App Config.
 #----------------------------------------------------------------------------#
 
-app = Flask(__name__)
+def create_app():
+    return Flask(__name__);
+
+app = create_app();
+
 app.config.from_object('config')
 #db = SQLAlchemy(app)
 
@@ -41,6 +47,7 @@ def login_required(test):
 #----------------------------------------------------------------------------#
 # Controllers.
 #----------------------------------------------------------------------------#
+
 
 app.register_blueprint(home.home)
 app.register_blueprint(about.about)
