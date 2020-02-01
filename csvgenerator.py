@@ -43,20 +43,22 @@ def createCSV(lists):
 instruction = {
     'race' : {
         'white': 1.5,
-        'black': 0.8,
-        'asian': 200,
-        'indian': 0.5,
+        'black': 1,
+        'asian': 1.3,
+        'latino': 0.8,
+        'indigenous': .8,
+        'pacific': .9,
     },
     'gender' : {
-        'male': 1.24,
-        'female': 0.76,
+        'male': 1,
+        'female': 0.73,
     },
     'job' : {
-        'bus operator': .5,
+        'Alcohol Beverage Purchasing Specialist': .5,
         'deputy sheriff': 1,
         'sheriff': 1.5,
-        'Alcohol Beverage Purchasing Specialist': .5
+        'Executive': 10
     }
 }
-for person in generateCSV(40, instruction, 50000, 5):
+for person in generateCSV(1500, instruction, 100000, 10000):
     print (person)
