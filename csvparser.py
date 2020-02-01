@@ -1,6 +1,6 @@
 import csv
 def parseCSV(file_name):
-    
+
     with open(file_name, 'r') as file_o_data:
         csv_data = csv.reader(file_o_data)#gives an iterable
         return csv_data
@@ -45,7 +45,7 @@ filtergroup (test_data, race)(white)
 >>> [[-100, 'white'], [1000, 'white']]
 """
 filter_group = lambda dataset, col: lambda var: list(filter (lambda row: row[dataset[0].index(col)] == var, dataset))
-print(filtergroup(test_data, "race")("asian"))
+print(filter_group(test_data, "race")("asian"))
 
 
 
