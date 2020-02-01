@@ -50,6 +50,9 @@ def home():
 def about():
     return render_template('pages/placeholder.about.html')
 
+@app.route('/upload')
+def upload():
+    return render_template('forms/upload.html')
 
 @app.route('/login')
 def login():
