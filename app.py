@@ -8,6 +8,8 @@ import logging
 from logging import Formatter, FileHandler
 from forms import *
 import os
+import parser
+
 
 #----------------------------------------------------------------------------#
 # App Config.
@@ -63,6 +65,7 @@ def upload_file():
    if request.method == 'POST':
       f = request.files['file']
       f.save('uploads/' + f.filename)
+      parser.parseCSV('uploads/' + f.filename)
       return render_template('forms/success.html', name = f.filename)
 
 @app.route('/login')
