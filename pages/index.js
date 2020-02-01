@@ -1,3 +1,4 @@
+import Layout from '../components/Layout';
 import useSWR from 'swr';
 
 function fetcher(url) {
@@ -15,6 +16,7 @@ export default function Index() {
   if (error) quote = 'Failed to fetch the quote.';
 
   return (
+      <Layout>
     <main className="center">
       <div className="quote">{quote}</div>
       {author && <span className="author">- {author}</span>}
@@ -39,5 +41,6 @@ export default function Index() {
         }
       `}</style>
     </main>
+    </Layout>
   );
 }
