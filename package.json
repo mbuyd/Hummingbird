@@ -22,6 +22,7 @@
   "homepage": "https://github.com/gideontong/HackSC-2020#readme",
   "dependencies": {
     "isomorphic-unfetch": "^3.0.0",
+    "list-react-files": "^0.2.0",
     "next": "^9.2.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
