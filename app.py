@@ -8,8 +8,10 @@ import logging
 from logging import Formatter, FileHandler
 from forms import *
 import os
-import parser
 
+from lib import *
+from controllers import *
+import parser
 
 #----------------------------------------------------------------------------#
 # App Config.
@@ -47,26 +49,10 @@ def login_required(test):
 #----------------------------------------------------------------------------#
 
 
-@app.route('/')
-def home():
-    return render_template('pages/placeholder.home.html')
-
-
-@app.route('/about')
-def about():
-    return render_template('pages/placeholder.about.html')
-
-@app.route('/upload')
-def upload():
-    return render_template('pages/upload.html')
-
-@app.route('/success', methods = ['GET', 'POST'])
-def upload_file():
-   if request.method == 'POST':
-      f = request.files['file']
-      f.save('uploads/' + f.filename)
-      parser.parseCSV('uploads/' + f.filename)
-      return render_template('forms/success.html', name = f.filename)
+app.register_blueprint(home.home)
+app.register_blueprint(about.about)
+app.register_blueprint(upload.upload)
+app.register_blueprint(success.success)
 
 @app.route('/login')
 def login():
