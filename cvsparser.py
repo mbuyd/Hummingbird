@@ -1,5 +1,6 @@
 import csv
 def parseCSV(file_name):
+    
     with open(file_name, 'r') as file_o_data:
         csv_data = csv.reader(file_o_data)#gives an iterable
         processed_data = {'M':[],

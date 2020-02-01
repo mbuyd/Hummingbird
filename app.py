@@ -65,7 +65,6 @@ def register():
     form = RegisterForm(request.form)
     return render_template('forms/register.html', form=form)
 
-
 @app.route('/forgot')
 def forgot():
     form = ForgotForm(request.form)
