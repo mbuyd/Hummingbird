@@ -2,7 +2,7 @@
 # Imports
 #----------------------------------------------------------------------------#
 
-from flask import Flask, render_template, request
+from flask import Flask, Blueprint, render_template, request
 # from flask.ext.sqlalchemy import SQLAlchemy
 import logging
 from logging import Formatter, FileHandler
@@ -13,7 +13,11 @@ import os
 # App Config.
 #----------------------------------------------------------------------------#
 
-app = Flask(__name__)
+def create_app():
+    return Flask(__name__);
+
+app = create_app();
+
 app.config.from_object('config')
 #db = SQLAlchemy(app)
 
