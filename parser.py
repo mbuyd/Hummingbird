@@ -35,7 +35,17 @@ def sort_by(data, column_sort, column_group ):
 
 test_data = [['money', 'race'], [-100, 'white'], [25000, 'asian'], [26000, 'asian'], [1000000, 'egyptian'], [1000, 'white']]
 sorted_test_data = sort_by([['money', 'race'], [-100, 'white'], [25000, 'asian'], [26000, 'asian'], [1000000, 'egyptian'], [1000, 'white']], "money", "race")
-print(list(filter(lambda datapoint: datapoint[1] == 'white', test_data)))
+
+"""
+filter_group takes in a dataset and column to filter by (creating something like a "race-filter",
+then takes in a name of the grouped variable (e.g. white))
+
+filtergroup (test_data, race)(white)
+>>> [[-100, 'white'], [1000, 'white']]
+"""
+filter_group = lambda dataset, col: lambda var: list(filter (lambda row: row[dataset[0].index(col)] == var, dataset))
+print(filtergroup(test_data, "race")("asian"))
+
 
 
 def mean(sorted_data):
