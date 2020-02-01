@@ -28,17 +28,24 @@ def generateCSV(sample_size, sample_instructions, global_mean, global_std):
             selected_attribute = random.choice(list(factor_types))
             weighed_mean *=factor_types[selected_attribute]
             person_attributes += [selected_attribute]
-        person_attributes += [random.gauss(weighed_mean, global_std)]
+        person_attributes += [int(100*random.gauss(weighed_mean, global_std))/100]
         answer.append(person_attributes)
+    createCSV(answer)
     return answer
 
+def createCSV(lists):
+    with open('sampledata.csv', 'w', newline='') as f:
+        thewriter = csv.writer(f)
+        thewriter.writerow(['race', 'gender', 'job', 'salary'])
+        for row in lists:
+            thewriter.writerow(row)
 
 instruction = {
     'race' : {
         'white': 1.5,
         'black': 0.8,
         'asian': 200,
-        'indian': 0,
+        'indian': 0.5,
     },
     'gender' : {
         'male': 1.24,
@@ -46,8 +53,10 @@ instruction = {
     },
     'job' : {
         'bus operator': .5,
-        'deputy sherriff': 1
+        'deputy sheriff': 1,
+        'sheriff': 1.5,
+        'Alcohol Beverage Purchasing Specialist': .5
     }
 }
-for person in generateCSV(40, instruction, 50000, 0.1):
+for person in generateCSV(40, instruction, 50000, 5):
     print (person)
