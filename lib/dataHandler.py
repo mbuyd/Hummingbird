@@ -7,6 +7,12 @@ import sys
 sys.path.append('lib')
 import Gender
 Gender = Gender.Gender
+import Job
+Job = Job.Job
+import Race
+Race = Race.Race
+import DataSections
+DataSections = DataSections.DataSections
 
 def parse(file_name):
     data = []
