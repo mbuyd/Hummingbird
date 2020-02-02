@@ -149,16 +149,20 @@ def generate_combinations(iterable):
     return result
 
 def complete_data_analysis(datasetURL):
-    results = {}
-    #binary gender analysis
-    results[(Gender.MALE, Gender.FEMALE)] = search_disparity('sampledata.csv',  DataSections.GENDER, Gender.MALE.value, Gender.FEMALE.value)
-    #race analysis
-    for combination in generate_combinations(Race):
-        results[combination] = search_disparity(datasetURL, DataSections.RACE, combination[0].value, combination[1].value )
-    #job analysis
-    for combination in generate_combinations(Job):
-        results[combination] = search_disparity(datasetURL, DataSections.JOB, combination[0].value, combination[1].value )
-    return results
+    if "MONT".toLower() in datasetURL:
+        print("it works!")
+    else:
+        results = {}
+        #binary gender analysis
+        results[(Gender.MALE, Gender.FEMALE)] = search_disparity('sampledata.csv',  DataSections.GENDER, Gender.MALE.value, Gender.FEMALE.value)
+        #race analysis
+        for combination in generate_combinations(Race):
+            results[combination] = search_disparity(datasetURL, DataSections.RACE, combination[0].value, combination[1].value )
+        #job analysis
+        for combination in generate_combinations(Job):
+            results[combination] = search_disparity(datasetURL, DataSections.JOB, combination[0].value, combination[1].value )
+        return results
+
 
 
 def main():
@@ -189,9 +193,9 @@ def main():
     # comprehensive_data_analysis = complete_data_analysis(argumentList[0])
     recommendations = []
     if (ratio < 45):
-        recommendations.append("Your company favors women in the hiring process (by about "+(str(abs(float(50 - ratio))))+"%)! Try to balance out your company!")
+        recommendations.append("Your company favors women in the hiring process (by about "+(str2(2*abs(float(50 - ratio))))+"%)! Try to balance out your company!")
     elif (ratio > 55):
-        recommendations.append("Your company favors men in the hiring process (by about "+(str(abs(float(50 - ratio))))+"%)! Try to balance out your company!")
+        recommendations.append("Your company favors men in the hiring process (by about "+(str(2*abs(float(50 - ratio))))+"%)! Try to balance out your company!")
     else:
         recommendations.append("Fantastic job in maintaining a balance of both men and women in your workplace! Keep it up.")
     if (jobs < 10):
