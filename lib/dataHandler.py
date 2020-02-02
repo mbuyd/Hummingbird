@@ -84,6 +84,10 @@ def unique(lst):
 def dashSum(gender, job, salary):
     return len(gender), ratio(gender, Gender.MALE.value), math.floor(mean(salary)), len(unique(job))
 
+def t_score_calc(data1, data2):
+    denom= math.sqrt((sigma(data1)**2/len(first))+(sigma(data2)**2/len(second)))
+    return (mean(data1) - mean(data2))/denom
+
 def main():
     print("Begun handling of data with", sys.argv)
     argumentList = sys.argv[1:]
