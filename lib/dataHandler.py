@@ -15,6 +15,8 @@ Race = Race.Race
 import DataSections
 DataSections = DataSections.DataSections
 
+import disparitySearch
+
 def parse(file_name):
     data = []
     with open(file_name, 'r') as file:
@@ -95,8 +97,7 @@ def pt_score_calc(data1, data2):
     m2 = mean(data2)
     denom= math.sqrt(c1+c2)
     tVal = (m1-m2)/denom
-    pVal =
-    return pVal, tVal
+    return tVal
 
 def main():
     print("Begun handling of data with", sys.argv)
@@ -107,14 +108,16 @@ def main():
     race, gender, job, year, salary = splitCols(data)
     # filter(gender, salary, Gender.FEMALE.value)
     count, ratio, meanTc, jobs = dashSum(gender, job, salary)
+    tVal = disparitySearch('sampledata.csv',  DataSections.GENDER, Gender.MALE.value, Gender.FEMALE.value) #femal disparity but like... we should work it out
 
     dump = {
         "count": count,
         "ratio": ratio,
         "meanTc": meanTc,
         "jobs": jobs,
-        "t value": thing,
-    }
+        "t value": tVal,
+        #"p value": pVal,
+        }
     with open('blobs/' + argumentList[0][7:-3] + "json", 'w') as file:
         json.dump(dump, file)
         print("[dataHandler] saved!")
