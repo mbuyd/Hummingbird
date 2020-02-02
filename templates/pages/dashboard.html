@@ -135,9 +135,9 @@
                             <!-- small box -->
                             <div class="small-box bg-info">
                                 <div class="inner">
-                                    <h3>{{ p_val_g }}</h3>
+                                    <h3>{{ size }}</h3>
 
-                                    <p>P value: gender</p>
+                                    <p>Headcount</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-person-stalker"></i>
@@ -183,9 +183,9 @@
                             <!-- small box -->
                             <div class="small-box bg-danger">
                                 <div class="inner">
-                                    <h3>{{ p_val_race }}</h3>
+                                    <h3>{{ jobCount }}</h3>
 
-                                    <p>P value: race</p>
+                                    <p>Unique Jobs</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-flash"></i>
@@ -206,13 +206,13 @@
                                 <div class="card-header">
                                     <h3 class="card-title">
                                         <i class="fas fa-chart-pie mr-1"></i>
-                                        Salary Distribution
+                                        Annual Compensation
                                     </h3>
                                     <div class="card-tools">
                                         <ul class="nav nav-pills ml-auto">
                                             <li class="nav-item">
                                                 <a class="nav-link active" href="#revenue-chart"
-                                                    data-toggle="tab">Histogram</a>
+                                                    data-toggle="tab">Area</a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" href="#sales-chart" data-toggle="tab">Donut</a>
@@ -271,12 +271,12 @@
                                         <!-- ./col -->
                                         <div class="col-4 text-center">
                                             <div id="sparkline-2"></div>
-                                            <div class="text-white">White Workers</div>
+                                            <div class="text-white">White WOrker</div>
                                         </div>
                                         <!-- ./col -->
                                         <div class="col-4 text-center">
                                             <div id="sparkline-3"></div>
-                                            <div class="text-white">Asian Workers</div>
+                                            <div class="text-white">Sales</div>
                                         </div>
                                         <!-- ./col -->
                                     </div>
@@ -294,7 +294,7 @@
                                 <div class="card-header">
                                     <h3 class="card-title">
                                         <i class="ion ion-clipboard mr-1"></i>
-                                        Recommendations for diversity
+                                        Recommendations and Feedback
                                     </h3>
                                 </div>
                                 <!-- /.card-header -->
@@ -308,8 +308,8 @@
                                             </span>
                                             <!-- checkbox -->
                                             <div class="icheck-primary d-inline ml-2">
-                                                <input type="checkbox" value="" name="todo1" id="todoCheck1">
-                                                <label for="todoCheck1"></label>
+                                                <input type="checkbox" value="" name="todo{{feedback}}" id="todoCheck{{feedback}}">
+                                                <label for="todoCheck{{feedback}}"></label>
                                             </div>
                                             <!-- todo text -->
                                             <span class="text">Create internships for the underserved</span>

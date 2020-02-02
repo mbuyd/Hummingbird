@@ -261,4 +261,44 @@ $(function () {
     }
   )
 
+
+
+
+  var barGraphCanvas = $('#bar-chart-canvas').get(0).getContext('2d');
+  //$('#revenue-chart').get(0).getContext('2d');
+
+  var barGraphCanvasData = {
+    labels  : ['Black', 'White', 'Asian', 'Latino', 'Indigenous', 'Pacific'],
+    datasets: [{
+      label: 'Annual Salary',
+      backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
+      borderColor: window.chartColors.red,
+      borderWidth: 1,
+      data: [
+        Math.floor(Math.random() * 4000) + 52169,
+        Math.floor(Math.random() * 3000) + 56712,
+        Math.floor(Math.random() * 1780) + 59126,
+        Math.floor(Math.random() * 2500) + 54236,
+        Math.floor(Math.random() * 4800) + 49057,
+        Math.floor(Math.random() * 2500) + 53705
+      ]
+    }, 
+    ]
+  }
+
+  var barGraphCanvasOptions = {
+    maintainAspectRatio : false,
+    responsive : true,
+    legend: {
+      display: false,
+    },
+  }
+
+  // This will get the first returned node in the jQuery collection.
+  var barGraphChart = new Chart(barGraphCanvas, { 
+      type: 'bar', 
+      data: barGraphCanvasData, 
+      options: barGraphCanvasOptions
+    }
+  )
 })
