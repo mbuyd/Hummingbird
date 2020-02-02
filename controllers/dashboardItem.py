@@ -3,7 +3,7 @@ from lib.dataHandler import *
 dashboardItem = Blueprint('dashboardItem', __name__,
                         template_folder='templates')
 
-@chicken.route('/dashboardItem', methods=['GET','POST'])
+@dashboardItem.route('/dashboardItem', methods=['GET','POST'])
 def samplefunction():
     print(request.form['fileSub'])
     with open("blobs/"+request.form['fileSub']+".json") as json_file:
