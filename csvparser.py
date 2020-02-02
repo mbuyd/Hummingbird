@@ -56,3 +56,88 @@ print(filter_group(test_data, "race")("asian"))
 def mean_data(sorted_data):
     return {grouper: (sum(values)/len(values)) for grouper, values in sorted_test_data.items() }
 print(mean_data(test_data))
+
+
+
+
+
+
+"""
+Filters a CSV into several Lists, currently supported lists are categories, gender (index 0), annualSalary(index 1), Employee Title (index 2), and race (index 3)
+"""
+def filterCSV(file_name):
+    with open(file_name, 'r') as file_o_data:
+        csv_data = csv.reader(file_o_data) #gives an iterable
+        categories = []
+        gender = []
+        annualSalary = []
+        race = []
+        employeeTitle = [] 
+        #gender:annual salary
+
+        for specData in next(csv_data):
+            categories.append(specData)
+        print(categories)
+
+        for datapoint in csv_data:
+            index = 0
+            for specificData in datapoint:
+                
+                #print(specificData)
+                
+                if ("Gender" in categories and index == categories.index("Gender")):
+                    gender.append(specificData)
+                elif ("Current Annual Salary" in categories and index == categories.index("Current Annual Salary")):
+                    annualSalary.append(specificData)
+                elif ("Race" in categories and index == categories.index("Race")):
+                    race.append(specificData)
+                #elif (index == categories.index("Employee Position Title") or index == categories.index("Position Title")):
+                #    employeeTitle.append(specificData)
+                index += 1
+        return [gender, annualSalary, employeeTitle, race]
+
+#gender = 'M' or 'F'
+def genderSalaryAVG(arr, seekGender):
+    
+    gender = arr[0]
+    annualSalary = arr[1]
+
+    if ((seekGender != 'M' and seekGender != 'F') or gender == []):
+        return
+
+    totalAnn = 0
+    index = 0
+    count = 0
+
+    for data in gender:
+        if (data.lower() == seekGender.lower() and annualSalary[index] != ''):
+
+            totalAnn += float(annualSalary[index])
+            count += 1
+        index += 1
+
+    print("Average annual salary for gender: "+seekGender+", is "+(str(int(totalAnn/count))))
+
+    return (str(int(totalAnn/count)))
+
+def raceAVG(arr, seekRace):
+    
+    race = arr[3]
+    annualSalary = arr[1]
+    if (seekRace == [] or race == [] or annualSalary == []):
+        return
+    totalAnn = 0
+    index = 0
+    count = 0
+
+    for data in race:
+        if (data.lower() == seekRace.lower() and annualSalary[index] != ''):
+
+            totalAnn += float(annualSalary[index])
+            count += 1
+        index += 1
+
+    print("Average annual salary for race: "+seekRace+", is "+(str(int(totalAnn/count))))
+
+    return (str(int(totalAnn/count)))
+    

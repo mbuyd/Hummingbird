@@ -8,7 +8,12 @@ def upload_file():
    if request.method == 'POST':
       f = request.files['file']
       f.save('uploads/' + f.filename)
-      csv_data = csvparser.parseCSV('uploads/' + f.filename)
-      gender_salary_data = csvparser.sort_by(csv_data, "Gender", "Current Annual Salary")
+
+      csv_data = csvparser.filterCSV('uploads/' + f.filename)
+      csvparser.genderSalaryAVG(csv_data, "M")
+      csvparser.genderSalaryAVG(csv_data, "F")
+      csvparser.raceAVG(csv_data, "white")
+      #csv_data = csvparser.parseCSV('uploads/' + f.filename)
+      #gender_salary_data = csvparser.sort_by(csv_data, "Gender", "Current Annual Salary")
       #print(csvparser.mean_data(gender_salary_data))
       return render_template('forms/success.html', name = f.filename)
