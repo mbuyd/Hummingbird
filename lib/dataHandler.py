@@ -89,6 +89,31 @@ def unique(lst):
 def dashSum(gender, job, salary):
     return len(gender), 100*ratio(gender, Gender.MALE.value), math.floor(mean(salary)), len(unique(job))
 
+def findAllT(race, gender, job, year, salary):
+    allT = {}
+    allT['race'] = {}
+    for r in range(len(Race)):
+        for i in range(r + 1, len(Race)):
+            raceListA = singleFilter(race, salary, r)
+            raceListB = singleFilter(race, salary, i)
+            allT['race'][(r + 1) * (i + 1)] = stats.ttest_ind(raceListA, raceListB)
+    
+    allT['gender'] = {}
+    for g in range(len(Gender)):
+        for i in range(g + 1, len(Gender)):
+            genderListA = singleFilter(gender, salary, g)
+            genderListB = singleFilter(gender, salary, i)
+            allT['gender'][(g + 1) * (i + 1)] = stats.ttest_ind(genderListA, genderListB)
+    
+    allT['job'] = {}
+    for j in range(len(Job)):
+        for i in range(j + 1, len(Job)):
+            jobListA = singleFilter(job, salary, j)
+            jobListB = singleFilter(job, salary, i)
+            allT['job'][(j + 1) * (i + 1)] = stats.ttest_ind(jobListA, jobListB)
+    
+    return allT
+
 def pt_score_calc(data1, data2):
     c1 = (sigma(data1)**2)/len(data1)
     c2 = (sigma(data2)**2)/len(data2)
@@ -147,17 +172,19 @@ def main():
     maleSalary = singleFilter(gender, salary, Gender.MALE.value)
     femaleSalary = singleFilter(gender, salary, Gender.FEMALE.value)
 
-    t, p = stats.ttest_ind(maleSalary, femaleSalary)
-    print("t and p:", t, p)
+    # t, p = stats.ttest_ind(maleSalary, femaleSalary)
+    # print("t and p:", t, p)
+    allT = findAllT(race, gender, job, year, salary)
 
-    tVal = search_disparity(argumentList[0],  DataSections.GENDER, Gender.MALE.value, Gender.FEMALE.value)
-    comprehensive_data_analysis = complete_data_analysis(argumentList[0])
+    # tVal = search_disparity(argumentList[0],  DataSections.GENDER, Gender.MALE.value, Gender.FEMALE.value)
+    # comprehensive_data_analysis = complete_data_analysis(argumentList[0])
 
     dump = {
         "count": count,
         "ratio": ratio,
         "meanTc": meanTc,
         "jobs": jobs,
+        "t_vals": allT
         # "t value": tVal,
         # "permutations": comprehensive_data_analysis,
         #"p value": pVal,
