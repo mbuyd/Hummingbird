@@ -152,7 +152,7 @@ def main():
         "meanTc": meanTc,
         "jobs": jobs,
         # "t value": tVal,
-        "data permutations": comprehensive_data_analysis,
+        # "permutations": comprehensive_data_analysis,
         #"p value": pVal,
         }
     with open('blobs/' + argumentList[0][7:-3] + "json", 'w') as file:

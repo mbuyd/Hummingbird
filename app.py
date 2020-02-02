@@ -63,6 +63,7 @@ app.register_blueprint(upload.upload)
 app.register_blueprint(success.success)
 app.register_blueprint(dashboard.dashboard)
 app.register_blueprint(manage.manage)
+app.register_blueprint(dashboardItem.dashboardItem)
 
 @app.route('/login')
 def login():
