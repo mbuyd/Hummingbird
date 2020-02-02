@@ -13,7 +13,7 @@ instruction = {
     },
     'gender' : {
         0: 1,    # Male
-        1: 1, # Female
+        1: 0.73, # Female
     },
     'job' : {
         0: .5,  # Janitor
@@ -84,7 +84,7 @@ def createCSV(lists):
             thewriter.writerow(row)
 
 def main():
-    for person in generateCSV(1500, test_instruction, 100000, 10000):
+    for person in generateCSV(1500, instruction, 100000, 10000):
         print(person)
 
 # main()

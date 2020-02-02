@@ -21,7 +21,10 @@ def search_disparity(data, col, first, second):
     data = dataHandler.parse(data)
     data = dataHandler.splitCols(data)
     data1 = dataHandler.singleFilter(data[col.value], data[DataSections.SALARY.value], first)
-    data2 = dataHandler.singleFilter(data[col.value], data[DataSections.SALARY.value], second)
-    print(dataHandler.t_score_calc(data1, data2))
+    if second > -1:
+        data2 = dataHandler.singleFilter(data[col.value], data[DataSections.SALARY.value], second)
+    else:
+        data2 = data[DataSections.SALARY.value]
+    return dataHandler.pt_score_calc(data1, data2)
 
 search_disparity("sampledata.csv", DataSections.GENDER, Gender.MALE.value, Gender.FEMALE.value)
