@@ -1,4 +1,5 @@
 import csv
+import json
 import statistics
 import sys
 
@@ -64,5 +65,15 @@ def main():
 
     # ['race', 'gender', 'job', 'year', 'salary']
     race, gender, job, year, salary = splitCols(data)
+    count, ratio, meanTc, jobs = dashSum(gender, job, salary)
+
+    dump = {
+        "count": count,
+        "ratio": ratio,
+        "meanTc": meanTc,
+        "jobs": jobs
+    }
+    with open('blobs/' + argumentList[0][7:-3] + ".json", 'w') as file:
+        json.dump(dump, file)
 
 main()
