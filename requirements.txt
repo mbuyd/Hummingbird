@@ -1,8 +1,10 @@
 # ecdsa
 # paramiko
 # pycrypto
+# tensorflow
 coverage
 Fabric
+flask
 Flask-SQLAlchemy
 Flask-WTF
 keras
@@ -12,6 +14,5 @@ pandas
 scikit-learn
 scipy
 statsmodels
-tensorflow
 theano
 WTForms
