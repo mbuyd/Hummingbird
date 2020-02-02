@@ -88,8 +88,14 @@ def dashSum(gender, job, salary):
     return len(gender), ratio(gender, Gender.MALE.value), math.floor(mean(salary)), len(unique(job))
 
 def t_score_calc(data1, data2):
-    denom= math.sqrt((sigma(data1)**2/len(data1))+(sigma(data2)**2/len(data2)))
-    return (mean(data1) - mean(data2))/denom
+    c1 = (sigma(data1)**2)/len(data1)
+    c2 = (sigma(data2)**2)/len(data2)
+    m1 = mean(data1)
+    m2 = mean(data2)
+    print("m1 and m2 are", m1, m2)
+    denom= math.sqrt(c1+c2)
+    print(c1, c2, denom)
+    return (m1-m2)/denom
 
 def main():
     print("Begun handling of data with", sys.argv)
@@ -107,7 +113,9 @@ def main():
         "meanTc": meanTc,
         "jobs": jobs
     }
-    with open('blobs/' + argumentList[0][7:-3] + ".json", 'w') as file:
+    with open('blobs/' + argumentList[0][7:-3] + "json", 'w') as file:
         json.dump(dump, file)
+        print("[dataHandler] saved!")
 
-#main()
+if len(sys.argv) > 1:
+    main()

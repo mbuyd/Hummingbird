@@ -84,7 +84,7 @@ def createCSV(lists):
             thewriter.writerow(row)
 
 def main():
-    for person in generateCSV(1500, test_instruction, 100000, 1):
+    for person in generateCSV(1500, test_instruction, 100000, 10000):
         print(person)
 
 main()

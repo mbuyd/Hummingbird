@@ -6,5 +6,7 @@ manage = Blueprint('manage', __name__,
 
 @manage.route('/manage')
 def show():
-    files = os.listdir('uploads')
+    files = os.listdir('blobs')
+    for i in range(len(files)):
+        files[i] = files[i][:-5]
     return render_template('pages/manage.html', files = files)
