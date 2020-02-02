@@ -20,8 +20,8 @@ DataSections = DataSections.DataSections
 def search_disparity(data, col, first, second):
     data = dataHandler.parse(data)
     data = dataHandler.splitCols(data)
-    data1 = dataHandler.singleFilter(data[col], data[DataSections.SALARY], first)
-    data2 = dataHandler.singleFilter(data[col], data[DataSections.SALARY], second)
-    t_score_calc(data1, data2)
+    data1 = dataHandler.singleFilter(data[col.value], data[DataSections.SALARY.value], first)
+    data2 = dataHandler.singleFilter(data[col.value], data[DataSections.SALARY.value], second)
+    dataHandler.t_score_calc(data1, data2)
 
 search_disparity("generated.txt", DataSections.GENDER, Gender.MALE, Gender.FEMALE)
