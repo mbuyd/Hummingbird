@@ -9,4 +9,6 @@ def upload_file():
       f = request.files['file']
       f.save('uploads/' + f.filename)
       csv_data = csvparser.parseCSV('uploads/' + f.filename)
+      gender_salary_data = csvparser.sort_by(csv_data, "Gender", "Current Annual Salary")
+      #print(csvparser.mean_data(gender_salary_data))
       return render_template('forms/success.html', name = f.filename)
