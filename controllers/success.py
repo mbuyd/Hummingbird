@@ -11,5 +11,12 @@ def upload_file():
    if request.method == 'POST':
       f = request.files['file']
       f.save('uploads/' + f.filename)
+
+      csv_data = csvparser.filterCSV('uploads/' + f.filename)
+      csvparser.genderSalaryAVG(csv_data, "M")
+      csvparser.genderSalaryAVG(csv_data, "F")
+      csvparser.raceAVG(csv_data, "white")
+
+
       Popen(['python', 'lib/dataHandler.py', 'uploads/f.filename'])
       return render_template('forms/success.html', name = f.filename)

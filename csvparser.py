@@ -91,6 +91,10 @@ def filterCSV(file_name):
                     annualSalary.append(specificData)
                 elif ("Race" in categories and index == categories.index("Race")):
                     race.append(specificData)
+                if ("Employee Position Title" in categories or "Position Title" in categories or "job" in categories):
+                    if ("Employee Position Title" in categories):
+                        
+                    
                 #elif (index == categories.index("Employee Position Title") or index == categories.index("Position Title")):
                 #    employeeTitle.append(specificData)
                 index += 1
