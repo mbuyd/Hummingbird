@@ -25,12 +25,13 @@ def splitCols(data):
 
 def filter(labels, values, criteria):
     data = [x for x in values if criteria in labels]
+    return data
 
 def mean(lst):
     return sum(lst) / len(lst)
 
 def meanOf(labels, values, criteria):
-    data = [x for x in values if criteria in labels]
+    data = filter(labels, values, criteria)
     return sum(data) / len(data)
 
 # Find standard deviation
@@ -39,8 +40,8 @@ def sigma(lst):
 
 # Find standard deviation of criteria
 def sigmaOf(labels, values, criteria):
-    data = [x for x in values if criteria in labels]
-
+    data = filter(labels, values, criteria)
+    return statistics.stdev(data)
 
 def main():
     argumentList = sys.argv[1:]
