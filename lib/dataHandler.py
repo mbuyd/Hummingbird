@@ -101,15 +101,13 @@ def pt_score_calc(data1, data2):
 
 
 """
-Complete_data_analysis
+complete_data_analysis
 comprehensively analyses every single combination of possible discrimination and returns that as a file that is:
 {
     (subgroup a, subgroup b): t_value,
     ("whites", "blacks"): 3.93
 }
 """
-def complete_data_analysis(dataset):
-    pass
 
 def main():
     print("Begun handling of data with", sys.argv)
