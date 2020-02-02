@@ -7,6 +7,12 @@ import sys
 sys.path.append('lib')
 import Gender
 Gender = Gender.Gender
+import Job
+Job = Job.Job
+import Race
+Race = Race.Race
+import DataSections
+DataSections = DataSections.DataSections
 
 def parse(file_name):
     data = []
@@ -47,7 +53,10 @@ def singleFilter(labels, values, criteria):
     index in values is added to a new list, which is then returned
     after the entire list has been iterated through.
     """
-    data = [x for x in values if criteria in labels]
+    data = []
+    for i in range(len(labels)):
+        if criteria == labels[i]:
+            data.append(values[i])
     return data
 
 def mean(lst):
@@ -77,6 +86,10 @@ def unique(lst):
 # Generate a dashboard summary
 def dashSum(gender, job, salary):
     return len(gender), ratio(gender, Gender.MALE.value), math.floor(mean(salary)), len(unique(job))
+
+def t_score_calc(data1, data2):
+    denom= math.sqrt((sigma(data1)**2/len(data1))+(sigma(data2)**2/len(data2)))
+    return (mean(data1) - mean(data2))/denom
 
 def main():
     print("Begun handling of data with", sys.argv)

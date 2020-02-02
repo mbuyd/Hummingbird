@@ -13,13 +13,46 @@ instruction = {
     },
     'gender' : {
         0: 1,    # Male
-        1: 0.73, # Female
+        1: 1, # Female
     },
     'job' : {
         0: .5,  # Janitor
         1: 1,   # Cashier
         2: 1.5, # Engineer
         3: 10   # Executive
+    },
+    'year' : {
+        0: 0.8,  # Janitor
+        1: 0.9,   # Cashier
+        2: 0.95, # Engineer
+        3: 10   # Executive
+    }
+}
+
+test_instruction = {
+    'race' : {
+        0: 1, # White
+        1: 1,   # Black
+        2: 1, # Asian
+        3: 1, # Latino
+        4: 1,  # Indigenous
+        5: 1,  # Pacific
+    },
+    'gender' : {
+        0: 1,    # Male
+        1: 1, # Female
+    },
+    'job' : {
+        0: 1,  # Janitor
+        1: 1,   # Cashier
+        2: 1, # Engineer
+        3: 1   # Executive
+    },
+    'year' : {
+        0: 1,  # Janitor
+        1: 1,   # Cashier
+        2: 1, # Engineer
+        3: 1   # Executive
     }
 }
 
@@ -51,7 +84,7 @@ def createCSV(lists):
             thewriter.writerow(row)
 
 def main():
-    for person in generateCSV(1500, instruction, 100000, 10000):
+    for person in generateCSV(1500, test_instruction, 100000, 1):
         print(person)
 
-# main()
+main()
