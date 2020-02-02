@@ -36,7 +36,7 @@ def generateCSV(sample_size, sample_instructions, global_mean, global_std):
 def createCSV(lists):
     with open('sampledata.csv', 'w', newline='') as f:
         thewriter = csv.writer(f)
-        thewriter.writerow(['race', 'gender', 'job', 'salary'])
+        thewriter.writerow(['race', 'gender', 'job', 'year', 'salary'])
         for row in lists:
             thewriter.writerow(row)
 

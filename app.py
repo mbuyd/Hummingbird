@@ -8,6 +8,9 @@ import logging
 from logging import Formatter, FileHandler
 from forms import *
 import os
+import sys
+import webbrowser
+
 
 from lib import *
 from controllers import *
@@ -16,6 +19,12 @@ import parser
 #----------------------------------------------------------------------------#
 # App Config.
 #----------------------------------------------------------------------------#
+
+MIN_PYTHON = (3, 5)
+
+def versionCheck():
+    if sys.version_info < MIN_PYTHON:
+        sys.exit("Python %s.%s or later is required.\n" % MIN_PYTHON)
 
 def create_app():
     return Flask(__name__);
@@ -54,6 +63,7 @@ app.register_blueprint(about.about)
 app.register_blueprint(upload.upload)
 app.register_blueprint(success.success)
 app.register_blueprint(dashboard.dashboard)
+app.register_blueprint(manage.manage)
 
 @app.route('/login')
 def login():
@@ -72,6 +82,41 @@ def forgot():
     return render_template('forms/forgot.html', form=form)
 
 # Error handlers.
+
+@app.route('/', methods=['GET', 'POST'])
+def searchHome():
+    search = request.form
+    
+    if request.method == 'POST':
+        print("SHOULD SEARCH: "+search.get('search'))
+        url = "http://www.google.com/search?q="+search.get('search')
+        webbrowser.open_new_tab(url)
+        return render_template('pages/home.html')
+    #return render_template('pages/upload.html')
+
+@app.route('/dashboard', methods=['GET', 'POST'])
+def searchDashboard():
+    search = request.form
+    
+    if request.method == 'POST':
+        print("SHOULD SEARCH: "+search.get('search'))
+        url = "http://www.google.com/search?q="+search.get('search')
+        webbrowser.open_new_tab(url)
+        return render_template('pages/dashboard.html',
+        size = 500, 
+        mfRatio = 99,
+        meanTc = 5000000,
+        jobCount = 5)
+
+@app.route('/upload', methods=['GET', 'POST'])
+def searchUpload():
+    search = request.form
+    
+    if request.method == 'POST':
+        print("SHOULD SEARCH: "+search.get('search'))
+        url = "http://www.google.com/search?q="+search.get('search')
+        webbrowser.open_new_tab(url)
+        return render_template('pages/upload.html')
 
 
 @app.errorhandler(500)
