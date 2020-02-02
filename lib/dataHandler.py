@@ -15,8 +15,6 @@ Race = Race.Race
 import DataSections
 DataSections = DataSections.DataSections
 
-import disparitySearch
-
 def parse(file_name):
     data = []
     with open(file_name, 'r') as file:
@@ -88,7 +86,7 @@ def unique(lst):
 
 # Generate a dashboard summary
 def dashSum(gender, job, salary):
-    return len(gender), ratio(gender, Gender.MALE.value), math.floor(mean(salary)), len(unique(job))
+    return len(gender), 100*ratio(gender, Gender.MALE.value), math.floor(mean(salary)), len(unique(job))
 
 def pt_score_calc(data1, data2):
     c1 = (sigma(data1)**2)/len(data1)
@@ -98,6 +96,16 @@ def pt_score_calc(data1, data2):
     denom= math.sqrt(c1+c2)
     tVal = (m1-m2)/denom
     return tVal
+
+def search_disparity(data, col, first, second):
+    data = parse(data)
+    data = splitCols(data)
+    data1 = singleFilter(data[col.value], data[DataSections.SALARY.value], first)
+    if second > -1:
+        data2 = singleFilter(data[col.value], data[DataSections.SALARY.value], second)
+    else:
+        data2 = data[DataSections.SALARY.value]
+    return pt_score_calc(data1, data2)
 
 def main():
     print("Begun handling of data with", sys.argv)
@@ -113,7 +121,7 @@ def main():
     print(salary)
     # filter(gender, salary, Gender.FEMALE.value)
     count, ratio, meanTc, jobs = dashSum(gender, job, salary)
-    tVal = disparitySearch.search_disparity('sampledata.csv',  DataSections.GENDER, Gender.MALE.value, Gender.FEMALE.value) #femal disparity but like... we should work it out
+    tVal = search_disparity('sampledata.csv',  DataSections.GENDER, Gender.MALE.value, Gender.FEMALE.value) #femal disparity but like... we should work it out
 
     dump = {
         "count": count,
