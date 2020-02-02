@@ -2,6 +2,9 @@ import csv
 import statistics
 import sys
 
+from . import Gender
+Gender = Gender.Gender
+
 def parse(file_name):
     data = []
     with open(file_name, 'r') as file:
@@ -42,6 +45,18 @@ def sigma(lst):
 def sigmaOf(labels, values, criteria):
     data = filter(labels, values, criteria)
     return statistics.stdev(data)
+
+# Returns the percentage of criteria in a list
+def ratio(list, criteria):
+    data = [x for x in list if x == criteria]
+    return len(data) / len(list)
+
+def unique(lst):
+    return list(dict.fromkeys(lst))
+
+# Generate a dashboard summary
+def dashSum(gender, job, salary):
+    return len(gender), ratio(gender, Gender.MALE), mean(salary), len(unique(job))
 
 def main():
     argumentList = sys.argv[1:]
