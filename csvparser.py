@@ -1,9 +1,13 @@
 import csv
 def parseCSV(file_name):
-
+    myList = []
     with open(file_name, 'r') as file_o_data:
-        csv_data = csv.reader(file_o_data)#gives an iterable
-        return csv_data
+        #csv_data = csv.reader(file_o_data)#gives an iterable
+
+        for row in csv.reader(file_o_data):
+            myList.append(row)
+        print(myList)
+        return myList
         processed_data = {'M':[],
         'F':[]} #gender:annual salary
         next(csv_data)
@@ -35,7 +39,7 @@ def sort_by(data, column_sort, column_group ):
     return sorted_data
 
 test_data = [['money', 'race'], [-100, 'white'], [25000, 'asian'], [26000, 'asian'], [1000000, 'egyptian'], [1000, 'white']]
-sorted_test_data = sort_by([['money', 'race'], [-100, 'white'], [25000, 'asian'], [26000, 'asian'], [1000000, 'egyptian'], [1000, 'white']], "money", "race")
+sorted_test_data = sort_by(test_data, "money", "race")
 
 """
 filter_group takes in a dataset and column to filter by (creating something like a "race-filter",
