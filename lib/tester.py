@@ -1,4 +1,4 @@
-from . import dataHandler
+import dataHandler
 
 
 """tests whether two different sets of values of a label are significantly different"""

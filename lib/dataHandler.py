@@ -29,7 +29,11 @@ def splitCols(data):
     return race, gender, job, year, salary
 
 """
-filters VALUES for VALUES where CRITERIA
+Takes a CRITERIA that a label is supposed to have and returns a list of the corresponding values.
+
+Labels: a list of things that we are trying to match to the CRITERIA
+values: a list of entries that contains the values of interest
+criteria: the id that the label in LABELS has to match
 """
 def filter_jank(labels, values, criteria):
     data = [x for x in values if criteria in labels]
