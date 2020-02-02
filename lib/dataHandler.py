@@ -120,6 +120,7 @@ def generate_combinations(iterable):
                 result += [(iteration, iteration2)]
             avoid += [iteration]
     return result
+    
 def complete_data_analysis(datasetURL):
     results = {}
     #binary gender analysis
@@ -142,6 +143,7 @@ def main():
     race, gender, job, year, salary = splitCols(data)
     # filter(gender, salary, Gender.FEMALE.value)
     count, ratio, meanTc, jobs = dashSum(gender, job, salary)
+    tVal = search_disparity(argumentList[0],  DataSections.GENDER, Gender.MALE.value, Gender.FEMALE.value)
     comprehensive_data_analysis = complete_data_analysis(argumentList[0])
 
     dump = {
