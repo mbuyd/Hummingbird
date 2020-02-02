@@ -1,5 +1,5 @@
 {% extends 'layouts/dash.html' %}
-{% block title %}Dashboard Item{% endblock %}
+{% block title %}Dashboard{% endblock %}
 {% block content %}
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -21,9 +21,9 @@
             </ul>
 
             <!-- SEARCH FORM -->
-            <form class="form-inline ml-3" method="get" action = "https://www.google.com/search" target="_blank">
+            <form class="form-inline ml-3" method="get" action="https://www.google.com/search" target="_blank">
                 <div class="input-group input-group-sm">
-                    <input class="form-control form-control-navbar" type="search" name ="q" placeholder="Search"
+                    <input class="form-control form-control-navbar" type="search" name="q" placeholder="Search"
                         aria-label="Search">
                     <div class="input-group-append">
                         <button class="btn btn-navbar" type="submit">
@@ -35,99 +35,8 @@
 
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
-                <!-- Messages Dropdown Menu -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link" data-toggle="dropdown" href="#">
-                        <i class="far fa-comments"></i>
-                        <span class="badge badge-danger navbar-badge">3</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
-                            <div class="media">
-                                <img src="static/dist/img/user1-128x128.jpg" alt="User Avatar"
-                                    class="img-size-50 mr-3 img-circle">
-                                <div class="media-body">
-                                    <h3 class="dropdown-item-title">
-                                        Brad Diesel
-                                        <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                                    </h3>
-                                    <p class="text-sm">Call me whenever you can...</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                </div>
-                            </div>
-                            <!-- Message End -->
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
-                            <div class="media">
-                                <img src="static/dist/img/user8-128x128.jpg" alt="User Avatar"
-                                    class="img-size-50 img-circle mr-3">
-                                <div class="media-body">
-                                    <h3 class="dropdown-item-title">
-                                        John Pierce
-                                        <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                                    </h3>
-                                    <p class="text-sm">I got your message bro</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                </div>
-                            </div>
-                            <!-- Message End -->
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
-                            <div class="media">
-                                <img src="static/dist/img/user3-128x128.jpg" alt="User Avatar"
-                                    class="img-size-50 img-circle mr-3">
-                                <div class="media-body">
-                                    <h3 class="dropdown-item-title">
-                                        Nora Silvester
-                                        <span class="float-right text-sm text-warning"><i
-                                                class="fas fa-star"></i></span>
-                                    </h3>
-                                    <p class="text-sm">The subject goes here</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                </div>
-                            </div>
-                            <!-- Message End -->
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-                    </div>
-                </li>
-                <!-- Notifications Dropdown Menu -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link" data-toggle="dropdown" href="#">
-                        <i class="far fa-bell"></i>
-                        <span class="badge badge-warning navbar-badge">15</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <span class="dropdown-item dropdown-header">15 Notifications</span>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-envelope mr-2"></i> 4 new messages
-                            <span class="float-right text-muted text-sm">3 mins</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-users mr-2"></i> 8 friend requests
-                            <span class="float-right text-muted text-sm">12 hours</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-file mr-2"></i> 3 new reports
-                            <span class="float-right text-muted text-sm">2 days</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
-                        <i class="fas fa-th-large"></i>
-                    </a>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="#" class="nav-link">About us</a>
                 </li>
             </ul>
         </nav>
@@ -137,8 +46,8 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="/" class="brand-link">
-                <img src="static/img/hummingbird.png" alt="Hummingbird"
-                    class="brand-image img-circle elevation-3" style="opacity: .8">
+                <img src="static/img/hummingbird.png" alt="Hummingbird" class="brand-image img-circle elevation-3"
+                    style="opacity: .8">
                 <span class="brand-text font-weight-light">Hummingbird</span>
             </a>
 
@@ -226,15 +135,15 @@
                             <!-- small box -->
                             <div class="small-box bg-info">
                                 <div class="inner">
-                                    <h3>{{ size }}</h3>
+                                    <h3>{{ p_val_g }}</h3>
 
-                                    <p>Headcount</p>
+                                    <p>P value: gender</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-person-stalker"></i>
                                 </div>
-                                <a href="/moreInfoCount" type = "submit" method="post" name = "info" value = {{size}} class="small-box-footer">More info <i
-                                    class="fas fa-arrow-circle-right"></i></a>
+                                <a href="#" class="small-box-footer">More info <i
+                                        class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
                         <!-- ./col -->
@@ -249,8 +158,8 @@
                                 <div class="icon">
                                     <i class="ion ion-pie-graph"></i>
                                 </div>
-                                <a href="/moreInfoGender" type = "submit" method="post" name = "info" value = {{size}} class="small-box-footer">More info <i
-                                    class="fas fa-arrow-circle-right"></i></a>
+                                <a href="#" class="small-box-footer">More info <i
+                                        class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
                         <!-- ./col -->
@@ -265,8 +174,8 @@
                                 <div class="icon">
                                     <i class="ion ion-card"></i>
                                 </div>
-                                <a href="/moreInfoSalary" type = "submit" method="post" name = "info" value = {{size}} class="small-box-footer">More info <i
-                                    class="fas fa-arrow-circle-right"></i></a>
+                                <a href="#" class="small-box-footer">More info <i
+                                        class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
                         <!-- ./col -->
@@ -274,15 +183,15 @@
                             <!-- small box -->
                             <div class="small-box bg-danger">
                                 <div class="inner">
-                                    <h3>{{ jobCount }}</h3>
+                                    <h3>{{ p_val_race }}</h3>
 
-                                    <p>Unique Jobs</p>
+                                    <p>P value: race</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-flash"></i>
                                 </div>
-                                <a href="/moreInfoJobs" type = "submit" method="post" name = "info" value = {{size}} class="small-box-footer">More info <i
-                                    class="fas fa-arrow-circle-right"></i></a>
+                                <a href="#" class="small-box-footer">More info <i
+                                        class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
                         <!-- ./col -->
@@ -297,13 +206,13 @@
                                 <div class="card-header">
                                     <h3 class="card-title">
                                         <i class="fas fa-chart-pie mr-1"></i>
-                                        Annual Compensation
+                                        Salary Distribution
                                     </h3>
                                     <div class="card-tools">
                                         <ul class="nav nav-pills ml-auto">
                                             <li class="nav-item">
-                                                <a class="nav-link active" href="#revenue-chart" 
-                                                    data-toggle="tab">Area</a>
+                                                <a class="nav-link active" href="#revenue-chart"
+                                                    data-toggle="tab">Histogram</a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" href="#sales-chart" data-toggle="tab">Donut</a>
@@ -337,23 +246,26 @@
                                 <!-- /.card-footer-->
                             </div>
                             <!--/.direct-chat -->
+                        </section>
+                        <!-- /.Left col -->
+                        <!-- right col (We are only adding the ID to make the widgets sortable)-->
+                        <section class="col-lg-5 connectedSortable">
 
                             <!-- TO DO List -->
                             <div class="card">
                                 <div class="card-header">
                                     <h3 class="card-title">
                                         <i class="ion ion-clipboard mr-1"></i>
-                                        Feedback & Recommendations
+                                        Recommendations for diversity
                                     </h3>
                                 </div>
                                 <!-- /.card-header -->
-                                
+
                                 <div class="card-body">
                                     <ul class="todo-list" data-widget="todo-list">
-                                        {% for feedback in recommendations %}
+
                                         <li>
                                             <!-- drag handle -->
-                                            
                                             <span class="handle">
                                                 <i class="fas fa-ellipsis-v"></i>
                                                 <i class="fas fa-ellipsis-v"></i>
@@ -364,21 +276,90 @@
                                                 <label for="todoCheck{{feedback}}"></label>
                                             </div>
                                             <!-- todo text -->
-                                            <span class="text">{{feedback}}</span>
+                                            <span class="text">Create internships for the underserved</span>
                                             <!-- Emphasis label -->
-                                            <!-- General tools such as edit or delete-->                                            
+                                            <small class="badge badge-danger"><i class="far fa-clock"></i> 2 mo </small>
                                         </li>
+                                        <li>
+                                            <span class="handle">
+                                                <i class="fas fa-ellipsis-v"></i>
+                                                <i class="fas fa-ellipsis-v"></i>
+                                            </span>
+                                            <div class="icheck-primary d-inline ml-2">
+                                                <input type="checkbox" value="" name="todo2" id="todoCheck2">
+                                                <label for="todoCheck2"></label>
+                                            </div>
+                                            <span class="text">Diversify interview panel</span>
+                                            <small class="badge badge-info"><i class="far fa-clock"></i> 3 mo </small>
+                                        </li>
+                                        <li>
+                                            <span class="handle">
+                                                <i class="fas fa-ellipsis-v"></i>
+                                                <i class="fas fa-ellipsis-v"></i>
+                                            </span>
+                                            <div class="icheck-primary d-inline ml-2">
+                                                <input type="checkbox" value="" name="todo3" id="todoCheck3">
+                                                <label for="todoCheck3"></label>
+                                            </div>
+                                            <span class="text">Hold unconcious bias training</span>
+                                            <small class="badge badge-warning"><i class="far fa-clock"></i> 3 mo </small>
+                                        </li>
+                                        <li>
+                                            <span class="handle">
+                                                <i class="fas fa-ellipsis-v"></i>
+                                                <i class="fas fa-ellipsis-v"></i>
+                                            </span>
+                                            <div class="icheck-primary d-inline ml-2">
+                                                <input type="checkbox" value="" name="todo4" id="todoCheck4">
+                                                <label for="todoCheck4"></label>
+                                            </div>
+                                            <span class="text">Create diverse mentorships</span>
+                                            <small class="badge badge-success"><i class="far fa-clock"></i> 1 yr </small>
+                                        </li>
+                                        <li>
+                                            <span class="handle">
+                                                <i class="fas fa-ellipsis-v"></i>
+                                                <i class="fas fa-ellipsis-v"></i>
+                                            </span>
+                                            <div class="icheck-primary d-inline ml-2">
+                                                <input type="checkbox" value="" name="todo5" id="todoCheck5">
+                                                <label for="todoCheck5"></label>
+                                            </div>
+                                            <span class="text">Offer flexibility: religious holidays</span>
+                                            <small class="badge badge-primary"><i class="far fa-clock"></i> 1
+                                                yr </small>
+                                        </li>
+                                        <li>
+                                            <span class="handle">
+                                                <i class="fas fa-ellipsis-v"></i>
+                                                <i class="fas fa-ellipsis-v"></i>
+                                            </span>
+                                            <div class="icheck-primary d-inline ml-2">
+                                                <input type="checkbox" value="" name="todo6" id="todoCheck6">
+                                                <label for="todoCheck6"></label>
+                                            </div>
+                                            <span class="text"> Expand recruitment, include disabilities </span>
+                                            <small class="badge badge-secondary"><i class="far fa-clock"></i> 1
+                                                yr </small>
+                                        </li>
+                                        {% for feedback in recommendations %}
+                                        <li>
+                                            <!-- drag handle -->
+
+                                            <span class="handle">
+                                                <i class="fas fa-ellipsis-v"></i>
+                                                <i class="fas fa-ellipsis-v"></i>
+                                            </span>
+                                            <!-- checkbox -->
+                                            <div class="icheck-primary d-inline ml-2">
+                                              <input type="checkbox" value="" name="todo{{feedback}}" id="todoCheck{{feedback}}">
+                                                <label for="todoCheck{{feedback}}"></label>
+                                            </div>
+                                            <span class="text">{{feedback}}</span>
+                                            </li>
                                         {% endfor %}
                                     </ul>
                                 </div>
-                                        
-                                <!-- /.card-body -->
-                            </div>
-                            <!-- /.card -->
-                        </section>
-                        <!-- /.Left col -->
-                        <!-- right col (We are only adding the ID to make the widgets sortable)-->
-                        <section class="col-lg-5 connectedSortable">
 
                             <!-- Map card -->
                             <div class="card bg-gradient-primary">
@@ -423,9 +404,15 @@
                                         <!-- ./col -->
                                     </div>
                                     <!-- /.row -->
+                                <!-- /.card-body -->
+                                <div class="card-footer clearfix">
+                                    <button type="button" class="btn btn-info float-right" onclick="window.open('https://www.google.com/search?q=financial+consulting+near+me', '_blank')"><i class="fas fa-plus"></i>
+                                        Find consulting</button>
                                 </div>
                             </div>
                             <!-- /.card -->
+
+
 
                             <!-- solid sales graph -->
                             <div class="card bg-gradient-info">
