@@ -128,6 +128,16 @@ def searchUpload():
         webbrowser.open_new_tab(url)
         return render_template('pages/upload.html')
 
+@app.route('/search', methods=['GET', 'POST'])
+def searchSuccess():
+    search = request.form
+    
+    if request.method == 'POST':
+        print("SHOULD SEARCH: "+search.get('search'))
+        url = "http://www.google.com/search?q="+search.get('search')
+        webbrowser.open_new_tab(url)
+        return render_template('pages/home.html')
+
 
 @app.errorhandler(500)
 def internal_error(error):
