@@ -11,12 +11,12 @@ inputs = dataset[:,0:categories]
 outputs = dataset[:,categories]
 
 model = Sequential()
-model.add(Dense(12, input_dim = categories, activation = 'relu'))
-model.add(Dense(8, activation = 'relu'))
+model.add(Dense(8, input_dim = categories, activation = 'relu'))
+model.add(Dense(4, activation = 'relu'))
 model.add(Dense(1, activation = 'sigmoid'))
 
 model.compile(loss = 'binary_crossentropy', optimizer = 'adam', metrics = ['accuracy'])
-model.fit(inputs, outputs, epochs = 150, batch_size = 10)
+model.fit(inputs, outputs, epochs = 1500, batch_size = 250)
 
 # Evaluation
 _, accuracy = model.evaluate(inputs, outputs)
