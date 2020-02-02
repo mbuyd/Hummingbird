@@ -57,8 +57,6 @@
             <li {% if request.endpoint == 'home' %} class="active" {% endif %}><a href="{{ url_for('home.show') }}">Home</a>
             </li>
             <li {% if request.endpoint == 'about' %} class="active" {% endif %}><a
-                href="{{ url_for('about.show') }}">About</a></li>
-            <li {% if request.endpoint == 'about' %} class="active" {% endif %}><a
                 href="{{ url_for('upload.show') }}">Upload</a></li>
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
