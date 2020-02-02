@@ -237,6 +237,15 @@
                                 </div><!-- /.card-body -->
                             </div>
                             <!-- /.card -->
+
+                            <!-- DIRECT CHAT -->
+                            <div class="card direct-chat direct-chat-primary">
+                                
+                                    <!-- /.direct-chat-pane -->
+                                <!-- /.card-body -->
+                                <!-- /.card-footer-->
+                            </div>
+                            <!--/.direct-chat -->
                         </section>
                         <!-- /.Left col -->
                         <!-- right col (We are only adding the ID to make the widgets sortable)-->
@@ -352,6 +361,49 @@
                                     </ul>
                                 </div>
 
+                            <!-- Map card -->
+                            <div class="card bg-gradient-primary">
+                                <div class="card-header border-0">
+                                    <h3 class="card-title">
+                                        <i class="fas fa-map-marker-alt mr-1"></i>
+                                        Workers around the U.S.
+                                    </h3>
+                                    <!-- card tools -->
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-primary btn-sm daterange"
+                                            data-toggle="tooltip" title="Date range">
+                                            <i class="far fa-calendar-alt"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-primary btn-sm" data-card-widget="collapse"
+                                            data-toggle="tooltip" title="Collapse">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                    </div>
+                                    <!-- /.card-tools -->
+                                </div>
+                                <div class="card-body">
+                                    <div id="world-map" style="height: 250px; width: 100%;"></div>
+                                </div>
+                                <!-- /.card-body-->
+                                <div class="card-footer bg-transparent">
+                                    <div class="row">
+                                        <div class="col-4 text-center">
+                                            <div id="sparkline-1"></div>
+                                            <div class="text-white">White Workers</div>
+                                        </div>
+                                        <!-- ./col -->
+                                        <div class="col-4 text-center">
+                                            <div id="sparkline-2"></div>
+                                            <div class="text-white">Asian Workers</div>
+                                        </div>
+                                        <!-- ./col -->
+                                        <div class="col-4 text-center">
+                                            <div id="sparkline-3"></div>
+                                            <div class="text-white">Latino Workers</div>
+                                        </div>
+                                        <!-- ./col -->
+                                    </div>
+                                    <!-- /.row -->
                                 <!-- /.card-body -->
                                 <div class="card-footer clearfix">
                                     <button type="button" class="btn btn-info float-right" onclick="window.open('https://www.google.com/search?q=financial+consulting+near+me', '_blank')"><i class="fas fa-plus"></i>
@@ -367,7 +419,7 @@
                                 <div class="card-header border-0">
                                     <h3 class="card-title">
                                         <i class="fas fa-th mr-1"></i>
-                                        Sales Graph
+                                        Male-to-Female Ratio
                                     </h3>
 
                                     <div class="card-tools">
@@ -390,21 +442,21 @@
                                             <input type="text" class="knob" data-readonly="true" value="20"
                                                 data-width="60" data-height="60" data-fgColor="#39CCCC">
 
-                                            <div class="text-white">Mail-Orders</div>
+                                            <div class="text-white">Percentage Asian</div>
                                         </div>
                                         <!-- ./col -->
                                         <div class="col-4 text-center">
-                                            <input type="text" class="knob" data-readonly="true" value="50"
+                                            <input type="text" class="knob" data-readonly="true" value="45"
                                                 data-width="60" data-height="60" data-fgColor="#39CCCC">
 
-                                            <div class="text-white">Online</div>
+                                            <div class="text-white">Percentage White</div>
                                         </div>
                                         <!-- ./col -->
                                         <div class="col-4 text-center">
-                                            <input type="text" class="knob" data-readonly="true" value="30"
+                                            <input type="text" class="knob" data-readonly="true" value="24"
                                                 data-width="60" data-height="60" data-fgColor="#39CCCC">
 
-                                            <div class="text-white">In-Store</div>
+                                            <div class="text-white">Percentage African American</div>
                                         </div>
                                         <!-- ./col -->
                                     </div>
@@ -415,7 +467,11 @@
                             <!-- /.card -->
 
                             <!-- Calendar -->
-
+                            <div class="card bg-gradient-success">
+                                
+                                    <!-- /. tools -->
+                                <!-- /.card-body -->
+                            </div>
                             <!-- /.card -->
                         </section>
                         <!-- right col -->
