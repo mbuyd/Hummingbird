@@ -99,6 +99,18 @@ def pt_score_calc(data1, data2):
     tVal = (m1-m2)/denom
     return tVal
 
+
+"""
+Complete_data_analysis
+comprehensively analyses every single combination of possible discrimination and returns that as a file that is:
+{
+    (subgroup a, subgroup b): t_value,
+    ("whites", "blacks"): 3.93
+}
+"""
+def complete_data_analysis(dataset):
+    pass
+
 def main():
     print("Begun handling of data with", sys.argv)
     argumentList = sys.argv[1:]
@@ -116,6 +128,7 @@ def main():
         "meanTc": meanTc,
         "jobs": jobs,
         "t value": tVal,
+        "possibility": comprehensive_data_analysis,
         #"p value": pVal,
         }
     with open('blobs/' + argumentList[0][7:-3] + "json", 'w') as file:
