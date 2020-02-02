@@ -93,7 +93,14 @@ def filterCSV(file_name):
                     race.append(specificData)
                 if ("Employee Position Title" in categories or "Position Title" in categories or "job" in categories):
                     if ("Employee Position Title" in categories):
-                        
+                        if (index == categories.index("Employee Position Title")):
+                            employeeTitle.append(specificData)
+                    elif ("Position Title" in categories):
+                        if (index == categories.index("Position Title")):
+                            employeeTitle.append(specificData)
+                    elif ("job" in categories):
+                        if (index == categories.index("job")):
+                            employeeTitle.append(specificData)
                     
                 #elif (index == categories.index("Employee Position Title") or index == categories.index("Position Title")):
                 #    employeeTitle.append(specificData)

@@ -18,5 +18,6 @@ def upload_file():
       csvparser.raceAVG(csv_data, "white")
 
 
+
       Popen(['python', 'lib/dataHandler.py', 'uploads/f.filename'])
       return render_template('forms/success.html', name = f.filename)
