@@ -114,10 +114,10 @@ $(function () {
   //$('#revenue-chart').get(0).getContext('2d');
 
   var salesChartData = {
-    labels  : ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    labels  : ['2012', '2013', '2014', '2015', '2016', '2017', '2018'],
     datasets: [
       {
-        label               : 'Digital Goods',
+        label               : 'Female',
         backgroundColor     : 'rgba(60,141,188,0.9)',
         borderColor         : 'rgba(60,141,188,0.8)',
         pointRadius          : true,
@@ -125,10 +125,10 @@ $(function () {
         pointStrokeColor    : 'rgba(60,141,188,1)',
         pointHighlightFill  : '#fff',
         pointHighlightStroke: 'rgba(60,141,188,1)',
-        data                : [28, 48, 40, 0, 86, 27, 0]
+        data                : [51512, 54137, 57123, 57901, 60712, 61215, 66126]
       },
       {
-        label               : 'Electronics',
+        label               : 'Male',
         backgroundColor     : 'rgba(210, 214, 222, 1)',
         borderColor         : 'rgba(210, 214, 222, 1)',
         pointRadius         : true,
@@ -136,7 +136,7 @@ $(function () {
         pointStrokeColor    : '#c1c7d1',
         pointHighlightFill  : '#fff',
         pointHighlightStroke: 'rgba(220,220,220,1)',
-        data                : [65, 59, 80, 81, 56, 55, 40]
+        data                : [55127, 58124, 59473, 61267, 65126, 69128, 74881]
       },
     ]
   }
@@ -173,13 +173,13 @@ $(function () {
   var pieChartCanvas = $('#sales-chart-canvas').get(0).getContext('2d')
   var pieData        = {
     labels: [
-        'Instore Sales', 
-        'Download Sales',
-        'Mail-Order Sales', 
+        'Percentage Asian', 
+        'Percentage White',
+        'Percentage African American', 
     ],
     datasets: [
       {
-        data: [30,12,20],
+        data: [21,45,16],
         backgroundColor : ['#f56954', '#00a65a', '#f39c12'],
       }
     ]
@@ -204,10 +204,10 @@ $(function () {
   //$('#revenue-chart').get(0).getContext('2d');
 
   var salesGraphChartData = {
-    labels  : ['2011 Q1', '2011 Q2', '2011 Q3', '2011 Q4', '2012 Q1', '2012 Q2', '2012 Q3', '2012 Q4', '2013 Q1', '2013 Q2'],
+    labels  : ['2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016'],
     datasets: [
       {
-        label               : 'Digital Goods',
+        label               : 'Male-to-Female Ratio (%)',
         fill                : false,
         borderWidth         : 2,
         lineTension         : 0,
@@ -217,7 +217,7 @@ $(function () {
         pointHoverRadius    : 7,
         pointColor          : '#efefef',
         pointBackgroundColor: '#efefef',
-        data                : [2666, 2778, 4912, 3767, 6810, 5670, 4820, 15073, 10687, 8432]
+        data                : [54, 57, 56, 49, 44, 52, 58, 57, 52, 55]
       }
     ]
   }
