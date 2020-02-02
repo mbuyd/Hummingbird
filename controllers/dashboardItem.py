@@ -14,13 +14,15 @@ def samplefunction():
             ratio = '%.3f'%data['ratio']
             averageComp = data['meanTc']
             uniqueJobs = data['jobs']
+            feedback = data['feedback']
             # tValue = data['t value']
             # permutations = data['data permutations']
         return render_template('pages/dashboardItem.html',
             size = num, 
             mfRatio = ratio,
             meanTc = averageComp,
-            jobCount = uniqueJobs) #, 
+            jobCount = uniqueJobs,
+            recommendations = feedback) #, 
             #tVal = tValue,
             #dataPermutations = permutations)
     else:
