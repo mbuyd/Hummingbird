@@ -140,11 +140,6 @@ def main():
 
     # ['race', 'gender', 'job', 'year', 'salary']
     race, gender, job, year, salary = splitCols(data)
-    print(race)
-    print(gender)
-    print(job)
-    print(year)
-    print(salary)
     # filter(gender, salary, Gender.FEMALE.value)
     count, ratio, meanTc, jobs = dashSum(gender, job, salary)
     comprehensive_data_analysis = complete_data_analysis(argumentList[0])
@@ -154,7 +149,7 @@ def main():
         "ratio": ratio,
         "meanTc": meanTc,
         "jobs": jobs,
-        "t value": tVal,
+        # "t value": tVal,
         "data permutations": comprehensive_data_analysis,
         #"p value": pVal,
         }
