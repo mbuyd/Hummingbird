@@ -38,8 +38,8 @@ def sort_by(data, column_sort, column_group ):
             sorted_data[grouper] += [sort_value]
     return sorted_data
 
-test_data = [['money', 'race'], [-100, 'white'], [25000, 'asian'], [26000, 'asian'], [1000000, 'egyptian'], [1000, 'white']]
-sorted_test_data = sort_by(test_data, "money", "race")
+# test_data = [['money', 'race'], [-100, 'white'], [25000, 'asian'], [26000, 'asian'], [1000000, 'egyptian'], [1000, 'white']]
+# sorted_test_data = sort_by(test_data, "money", "race")
 
 """
 filter_group takes in a dataset and column to filter by (creating something like a "race-filter",
@@ -48,14 +48,14 @@ then takes in a name of the grouped variable (e.g. white))
 filtergroup (test_data, race)(white)
 >>> [[-100, 'white'], [1000, 'white']]
 """
-filter_group = lambda dataset, col: lambda var: list(filter (lambda row: row[dataset[0].index(col)] == var, dataset))
-print(filter_group(test_data, "race")("asian"))
+# filter_group = lambda dataset, col: lambda var: list(filter (lambda row: row[dataset[0].index(col)] == var, dataset))
+# print(filter_group(test_data, "race")("asian"))
 
 
 
 def mean_data(sorted_data):
     return {grouper: (sum(values)/len(values)) for grouper, values in sorted_test_data.items() }
-print(mean_data(test_data))
+# print(mean_data(test_data))
 
 
 
