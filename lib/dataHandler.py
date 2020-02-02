@@ -97,17 +97,6 @@ def pt_score_calc(data1, data2):
     tVal = (m1-m2)/denom
     return tVal
 
-<<<<<<< HEAD
-
-"""
-complete_data_analysis
-comprehensively analyses every single combination of possible discrimination and returns that as a file that is:
-{
-    (subgroup a, subgroup b): t_value,
-    ("whites", "blacks"): 3.93
-}
-"""
-=======
 def search_disparity(data, col, first, second):
     data = parse(data)
     data = splitCols(data)
@@ -117,7 +106,32 @@ def search_disparity(data, col, first, second):
     else:
         data2 = data[DataSections.SALARY.value]
     return pt_score_calc(data1, data2)
->>>>>>> 6ad36bd77060856a4cff6483cd36408a6763be81
+
+
+"""Takes an interable and finds all possible, non duplicating possible pairs
+returns: a list of tuples
+"""
+def generate_combinations(iterable):
+    result = []
+    avoid = []
+    for iteration in iterable:
+        for iteration2 in iterable:
+            if iteration2 not in avoid and iteration2 is not iteration:
+                result += [(iteration, iteration2)]
+            avoid += [iteration]
+    return result
+def complete_data_analysis(datasetURL):
+    results = {}
+    #binary gender analysis
+    results[(Gender.MALE, Gender.FEMALE)] = search_disparity('sampledata.csv',  DataSections.GENDER, Gender.MALE.value, Gender.FEMALE.value)
+    #race analysis
+    for combination in generate_combinations(Race):
+        results[combination] = search_disparity(datasetURL, DataSections.RACE, combination[0].value, combination[1].value )
+    #job analysis
+    for combination in generate_combinations(Job):
+        results[combination] = search_disparity(datasetURL, DataSections.JOB, combination[0].value, combination[1].value )
+    return results
+
 
 def main():
     print("Begun handling of data with", sys.argv)
@@ -133,7 +147,7 @@ def main():
     print(salary)
     # filter(gender, salary, Gender.FEMALE.value)
     count, ratio, meanTc, jobs = dashSum(gender, job, salary)
-    tVal = search_disparity('sampledata.csv',  DataSections.GENDER, Gender.MALE.value, Gender.FEMALE.value) #femal disparity but like... we should work it out
+    comprehensive_data_analysis = complete_data_analysis(argumentList[0])
 
     dump = {
         "count": count,
