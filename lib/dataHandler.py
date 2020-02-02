@@ -182,8 +182,8 @@ def main():
     # print("t and p:", t, p)
     allT = findAllT(race, gender, job, year, salary)
     print(allT)
-    p_val_g= allT["gender"][2][1]
-    p_val_race= min([allT['race'][key] for key in allT['race']][1])
+    p_val_g= abs(allT["gender"][2][1])
+    p_val_race= abs(min([allT['race'][key] for key in allT['race']][1]))
     print("p vals", p_val_g, p_val_race)
     # tVal = search_disparity(argumentList[0],  DataSections.GENDER, Gender.MALE.value, Gender.FEMALE.value)
     # comprehensive_data_analysis = complete_data_analysis(argumentList[0])
