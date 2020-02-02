@@ -13,7 +13,7 @@ def samplefunction():
         ratio = '%.3f'%data['ratio']
         averageComp = data['meanTc']
         uniqueJobs = data['jobs']
-        tValue = data['tValue']
+        tValue = data['t value']
     return render_template('pages/dashboardItem.html',
         size = num, 
         mfRatio = ratio,
