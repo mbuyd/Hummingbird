@@ -86,8 +86,9 @@ def unique(lst):
     return list(dict.fromkeys(lst))
 
 # Generate a dashboard summary
-def dashSum(gender, job, salary):
-    return len(gender), 100*ratio(gender, Gender.MALE.value), math.floor(mean(salary)), len(unique(job))
+def dashSum(ppl, job, salary):
+
+    return len(ppl), 100*ratio(ppl, Gender.MALE.value), math.floor(mean(salary)), len(unique(job))
 
 def findAllT(race, gender, job, year, salary):
     allT = {}
@@ -97,21 +98,21 @@ def findAllT(race, gender, job, year, salary):
             raceListA = singleFilter(race, salary, r)
             raceListB = singleFilter(race, salary, i)
             allT['race'][(r + 1) * (i + 1)] = stats.ttest_ind(raceListA, raceListB)
-    
+
     allT['gender'] = {}
     for g in range(len(Gender)):
         for i in range(g + 1, len(Gender)):
             genderListA = singleFilter(gender, salary, g)
             genderListB = singleFilter(gender, salary, i)
             allT['gender'][(g + 1) * (i + 1)] = stats.ttest_ind(genderListA, genderListB)
-    
+
     allT['job'] = {}
     for j in range(len(Job)):
         for i in range(j + 1, len(Job)):
             jobListA = singleFilter(job, salary, j)
             jobListB = singleFilter(job, salary, i)
             allT['job'][(j + 1) * (i + 1)] = stats.ttest_ind(jobListA, jobListB)
-    
+
     return allT
 
 def pt_score_calc(data1, data2):
@@ -146,7 +147,7 @@ def generate_combinations(iterable):
                 result += [(iteration, iteration2)]
             avoid += [iteration]
     return result
-    
+
 def complete_data_analysis(datasetURL):
     results = {}
     #binary gender analysis
@@ -175,7 +176,8 @@ def main():
     # t, p = stats.ttest_ind(maleSalary, femaleSalary)
     # print("t and p:", t, p)
     allT = findAllT(race, gender, job, year, salary)
-
+    p_val_g= findAllT["gender"][1]
+    p_val_race= min([allT[key] for key in allT[race]])
     # tVal = search_disparity(argumentList[0],  DataSections.GENDER, Gender.MALE.value, Gender.FEMALE.value)
     # comprehensive_data_analysis = complete_data_analysis(argumentList[0])
 
@@ -184,7 +186,9 @@ def main():
         "ratio": ratio,
         "meanTc": meanTc,
         "jobs": jobs,
-        "t_vals": allT
+        "t_vals": allT,
+        "p_val_g": p_val_g,
+        "p_val_race": p_val_race,
         # "t value": tVal,
         # "permutations": comprehensive_data_analysis,
         #"p value": pVal,
