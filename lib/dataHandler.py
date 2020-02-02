@@ -171,8 +171,13 @@ def main():
     count, ratio, meanTc, jobs = dashSum(gender, job, salary)
 
     maleSalary = singleFilter(gender, salary, Gender.MALE.value)
-    femaleSalary = singleFilter(gender, salary, Gender.FEMALE.value)
+    maleSalary = sum(maleSalary) / len(maleSalary)
 
+    femaleSalary = singleFilter(gender, salary, Gender.FEMALE.value)
+    femaleSalary = sum(femaleSalary) / len(femaleSalary)
+
+    print(maleSalary)
+    print(femaleSalary)
     # t, p = stats.ttest_ind(maleSalary, femaleSalary)
     # print("t and p:", t, p)
     allT = findAllT(race, gender, job, year, salary)
@@ -182,6 +187,23 @@ def main():
     print("p vals", p_val_g, p_val_race)
     # tVal = search_disparity(argumentList[0],  DataSections.GENDER, Gender.MALE.value, Gender.FEMALE.value)
     # comprehensive_data_analysis = complete_data_analysis(argumentList[0])
+    recommendations = []
+    if (ratio < 45):
+        recommendations.append("Your company favors women in the hiring process (by about "+(str(abs(float(50 - ratio))))+"%)! Try to balance out your company!")
+    elif (ratio > 55):
+        recommendations.append("Your company favors men in the hiring process (by about "+(str(abs(float(50 - ratio))))+"%)! Try to balance out your company!")
+    else:
+        recommendations.append("Fantastic job in maintaining a balance of both men and women in your workplace! Keep it up.")
+    if (jobs < 10):
+        recommendations.append("Your company is lacking a diverse set of jobs. Try to compartamentalize your employees' duties more!")
+    elif (jobs >= 10):
+        recommendations.append("Great job maintaining a diverse set of jobs for your employees!")
+    if (maleSalary - femaleSalary > 9000):
+        recommendations.append("Your company has a bias when it comes to paying men over women. (A difference of $"+str(abs(int(femaleSalary - maleSalary)))+") Try to balance out your payrolls!")
+    elif (femaleSalary - maleSalary > 9000):
+        recommendations.append("Your company has a bias when it comes to paying women over men. (A difference of $"+str(abs(int(femaleSalary - maleSalary)))+") Try to balance out your payrolls!")
+    else:
+        recommendations.append("Great job maintaing balanced and equal payrolls for all of your employees!")
 
     dump = {
         "count": count,
@@ -191,6 +213,7 @@ def main():
         "t_vals": allT,
         "p_val_g": p_val_g,
         "p_val_race": p_val_race,
+        "feedback": recommendations,
         # "t value": tVal,
         # "permutations": comprehensive_data_analysis,
         #"p value": pVal,

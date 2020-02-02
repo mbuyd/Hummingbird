@@ -16,6 +16,7 @@ def samplefunction():
             uniqueJobs = data['jobs']
             gend = int(data['p_val_g']*1000)/1000
             rac = int(data['p_val_race']*1000)/1000
+            feedback = data['feedback']
             # tValue = data['t value']
             # permutations = data['data permutations']
         return render_template('pages/dashboardItem.html',
@@ -24,7 +25,8 @@ def samplefunction():
             meanTc = averageComp,
             jobCount = uniqueJobs,
             p_val_g = gend,
-            p_val_race = rac)
+            p_val_race = rac,
+            recommendations = feedback) #, 
             #tVal = tValue,
             #dataPermutations = permutations)
     else:
