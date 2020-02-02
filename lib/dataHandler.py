@@ -5,6 +5,7 @@ import statistics
 import sys
 from scipy import stats
 import numpy as np
+import random
 
 sys.path.append('lib')
 import Gender
@@ -21,6 +22,11 @@ def parse(file_name):
     with open(file_name, 'r') as file:
         for row in csv.reader(file):
             data.append(row)
+    if "MONT" in file_name:
+        mapfn = lambda data_entry: [random.randint(0, 5), int(data_entry[1] == "F"), random.randint(0, 3), random.randint(0,6), int(float(data_entry[2]))]
+        new_data = [datapoint for datapoint in map(mapfn,data[1:])]
+        return new_data[1:200]
+
     return data[1:]
 
 def splitCols(data):
@@ -32,7 +38,10 @@ def splitCols(data):
     for i in data:
         race.append(int(i[0]))
         gender.append(int(i[1]))
-        job.append(int(i[2]))
+        try:
+            job.append(int(i[2]))
+        except ValueError:
+            job.append(i[2])
         year.append(int(i[3]))
         salary.append(int(i[4]))
     return race, gender, job, year, salary
@@ -92,6 +101,7 @@ def dashSum(ppl, job, salary):
 
 def findAllT(race, gender, job, year, salary):
     allT = {}
+
     allT['race'] = {}
     for r in range(len(Race)):
         for i in range(r + 1, len(Race)):
@@ -106,13 +116,16 @@ def findAllT(race, gender, job, year, salary):
             genderListB = singleFilter(gender, salary, i)
             allT['gender'][(g + 1) * (i + 1)] = stats.ttest_ind(genderListA, genderListB)
 
+
     allT['job'] = {}
     for j in range(len(Job)):
         for i in range(j + 1, len(Job)):
+            print(i, j)
             jobListA = singleFilter(job, salary, j)
             jobListB = singleFilter(job, salary, i)
+            print (jobListA, jobListB)
+            print('endtest')
             allT['job'][(j + 1) * (i + 1)] = stats.ttest_ind(jobListA, jobListB)
-
     return allT
 
 def pt_score_calc(data1, data2):
@@ -147,10 +160,8 @@ def generate_combinations(iterable):
                 result += [(iteration, iteration2)]
             avoid += [iteration]
     return result
-
+"""
 def complete_data_analysis(datasetURL):
-    if "MONT".toLower() in datasetURL:
-        print("it works!")
     else:
         results = {}
         #binary gender analysis
@@ -163,13 +174,12 @@ def complete_data_analysis(datasetURL):
             results[combination] = search_disparity(datasetURL, DataSections.JOB, combination[0].value, combination[1].value )
         return results
 
-
+"""
 
 def main():
     print("Begun handling of data with", sys.argv)
     argumentList = sys.argv[1:]
     data = parse(argumentList[0])
-
     # ['race', 'gender', 'job', 'year', 'salary']
     race, gender, job, year, salary = splitCols(data)
     count, ratio, meanTc, jobs = dashSum(gender, job, salary)
