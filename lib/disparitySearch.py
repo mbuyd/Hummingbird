@@ -24,4 +24,4 @@ def search_disparity(data, col, first, second):
     data2 = dataHandler.singleFilter(data[col.value], data[DataSections.SALARY.value], second)
     dataHandler.t_score_calc(data1, data2)
 
-search_disparity("generated.txt", DataSections.GENDER, Gender.MALE, Gender.FEMALE)
+search_disparity("generated.txt", DataSections.GENDER, Gender.MALE.value, Gender.FEMALE.value)

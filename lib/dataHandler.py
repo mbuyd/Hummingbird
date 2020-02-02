@@ -53,7 +53,11 @@ def singleFilter(labels, values, criteria):
     index in values is added to a new list, which is then returned
     after the entire list has been iterated through.
     """
-    data = [x for x in values if criteria in labels]
+    data = []
+    for i in range(len(labels)):
+        if criteria == labels[i]:
+            data.append(values[i])
+    print(len(data))
     return data
 
 def mean(lst):
