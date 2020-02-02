@@ -76,4 +76,4 @@ def main():
     with open('blobs/' + argumentList[0][7:-3] + ".json", 'w') as file:
         json.dump(dump, file)
 
-main()
+#main()

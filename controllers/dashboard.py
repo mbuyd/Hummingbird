@@ -13,12 +13,13 @@ def show():
 
 @dashboard.route('/dashboard/<filename>')
 def filenameShow(filename):
-    print(filename)
-    print(parse(filename))
+    #print(filename)
+    arrays = parse('uploads/'+filename)
+    #print(arrays)
+    sizeOfArray = len(arrays)
     
-        
     return render_template('pages/dashboard.html',
-        size = 500, 
+        size = sizeOfArray, 
         mfRatio = 99,
         meanTc = 5000000,
         jobCount = 5)
