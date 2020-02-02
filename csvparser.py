@@ -84,19 +84,19 @@ def filterCSV(file_name):
             for specificData in datapoint:
                 
                 #print(specificData)
-                
-                if ("Gender" in categories and index == categories.index("Gender")):
+                categories = {category.lower() for category in categories}
+                if ("gender" in categories and index == categories.index("gender")):
                     gender.append(specificData)
-                elif ("Current Annual Salary" in categories and index == categories.index("Current Annual Salary")):
+                elif ("current annual salary" in categories and index == categories.index("current annual salary")):
                     annualSalary.append(specificData)
-                elif ("Race" in categories and index == categories.index("Race")):
+                elif ("race" in categories and index == categories.index("race")):
                     race.append(specificData)
-                if ("Employee Position Title" in categories or "Position Title" in categories or "job" in categories):
-                    if ("Employee Position Title" in categories):
-                        if (index == categories.index("Employee Position Title")):
+                if ("employee position title" in categories or "position title" in categories or "job" in categories):
+                    if ("employee position title" in categories):
+                        if (index == categories.index("employee position title")):
                             employeeTitle.append(specificData)
-                    elif ("Position Title" in categories):
-                        if (index == categories.index("Position Title")):
+                    elif ("position title" in categories):
+                        if (index == categories.index("position title")):
                             employeeTitle.append(specificData)
                     elif ("job" in categories):
                         if (index == categories.index("job")):
