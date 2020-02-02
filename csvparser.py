@@ -65,7 +65,7 @@ print(mean_data(test_data))
 """
 Filters a CSV into several Lists, currently supported lists are categories, gender (index 0), annualSalary(index 1), Employee Title (index 2), and race (index 3)
 """
-"""def filterCSV(file_name):
+def filterCSV(file_name):
     with open(file_name, 'r') as file_o_data:
         csv_data = csv.reader(file_o_data) #gives an iterable
         categories = []
@@ -84,7 +84,6 @@ Filters a CSV into several Lists, currently supported lists are categories, gend
             for specificData in datapoint:
                 
                 #print(specificData)
-                categories = [category.lower() for category in categories]
                 if ("gender" in categories and index == categories.index("gender")):
                     gender.append(specificData)
                 elif ("current annual salary" in categories and index == categories.index("current annual salary")):
@@ -105,7 +104,7 @@ Filters a CSV into several Lists, currently supported lists are categories, gend
                 #elif (index == categories.index("Employee Position Title") or index == categories.index("Position Title")):
                 #    employeeTitle.append(specificData)
                 index += 1
-        return [gender, annualSalary, employeeTitle, race]"""
+        return [gender, annualSalary, employeeTitle, race]
 
 #gender = 'M' or 'F'
 def genderSalaryAVG(arr, seekGender):

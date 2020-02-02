@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, abort, request
 from lib.dataHandler import *
-chicken = Blueprint('dashboardItem', __name__,
+dashboardItem = Blueprint('dashboardItem', __name__,
                         template_folder='templates')
 
 @chicken.route('/dashboardItem', methods=['GET','POST'])
