@@ -3,7 +3,8 @@ import json
 import statistics
 import sys
 
-from . import Gender
+sys.path.append('lib')
+import Gender
 Gender = Gender.Gender
 
 def parse(file_name):
@@ -27,7 +28,10 @@ def splitCols(data):
         salary.append(i[4])
     return race, gender, job, year, salary
 
-def filter(labels, values, criteria):
+"""
+filters VALUES for VALUES where CRITERIA
+"""
+def filter_jank(labels, values, criteria):
     data = [x for x in values if criteria in labels]
     return data
 
@@ -35,7 +39,7 @@ def mean(lst):
     return sum(lst) / len(lst)
 
 def meanOf(labels, values, criteria):
-    data = filter(labels, values, criteria)
+    data = filter_jank(labels, values, criteria)
     return sum(data) / len(data)
 
 # Find standard deviation
@@ -60,6 +64,7 @@ def dashSum(gender, job, salary):
     return len(gender), ratio(gender, Gender.MALE), mean(salary), len(unique(job))
 
 def main():
+    print("Begun handling of data with", sys.argv)
     argumentList = sys.argv[1:]
     data = parse(argumentList[0])
 
@@ -76,4 +81,4 @@ def main():
     with open('blobs/' + argumentList[0][7:-3] + ".json", 'w') as file:
         json.dump(dump, file)
 
-#main()
+main()
