@@ -3,6 +3,7 @@ import json
 import math
 import statistics
 import sys
+from scipy import stats
 import numpy as np
 
 sys.path.append('lib')
@@ -141,8 +142,14 @@ def main():
 
     # ['race', 'gender', 'job', 'year', 'salary']
     race, gender, job, year, salary = splitCols(data)
-    # filter(gender, salary, Gender.FEMALE.value)
     count, ratio, meanTc, jobs = dashSum(gender, job, salary)
+
+    maleSalary = singleFilter(gender, salary, Gender.MALE.value)
+    femaleSalary = singleFilter(gender, salary, Gender.FEMALE.value)
+
+    t, p = stats.ttest_ind(maleSalary, femaleSalary)
+    print("t and p:", t, p)
+
     tVal = search_disparity(argumentList[0],  DataSections.GENDER, Gender.MALE.value, Gender.FEMALE.value)
     comprehensive_data_analysis = complete_data_analysis(argumentList[0])
 

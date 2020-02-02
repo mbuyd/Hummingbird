@@ -57,7 +57,6 @@ def login_required(test):
 # Controllers.
 #----------------------------------------------------------------------------#
 
-
 app.register_blueprint(home.home)
 app.register_blueprint(upload.upload)
 app.register_blueprint(success.success)
@@ -65,29 +64,12 @@ app.register_blueprint(dashboard.dashboard)
 app.register_blueprint(manage.manage)
 app.register_blueprint(dashboardItem.dashboardItem)
 
-@app.route('/login')
-def login():
-    form = LoginForm(request.form)
-    return render_template('forms/login.html', form=form)
-
-
-@app.route('/register')
-def register():
-    form = RegisterForm(request.form)
-    return render_template('forms/register.html', form=form)
-
-@app.route('/forgot')
-def forgot():
-    form = ForgotForm(request.form)
-    return render_template('forms/forgot.html', form=form)
-
 # Error handlers.
 
 @app.errorhandler(500)
 def internal_error(error):
     #db_session.rollback()
     return render_template('errors/500.html'), 500
-
 
 @app.errorhandler(404)
 def not_found_error(error):
