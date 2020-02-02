@@ -57,28 +57,16 @@ def login_required(test):
 # Controllers.
 #----------------------------------------------------------------------------#
 
-
 app.register_blueprint(home.home)
 app.register_blueprint(upload.upload)
 app.register_blueprint(success.success)
 app.register_blueprint(dashboard.dashboard)
 app.register_blueprint(manage.manage)
-
-@app.route('/login')
-def login():
-    form = LoginForm(request.form)
-    return render_template('forms/login.html', form=form)
-
-
-@app.route('/register')
-def register():
-    form = RegisterForm(request.form)
-    return render_template('forms/register.html', form=form)
-
-@app.route('/forgot')
-def forgot():
-    form = ForgotForm(request.form)
-    return render_template('forms/forgot.html', form=form)
+app.register_blueprint(dashboardItem.dashboardItem)
+app.register_blueprint(moreInfoCount.moreInfoCount)
+app.register_blueprint(moreInfoGender.moreInfoGender)
+app.register_blueprint(moreInfoSalary.moreInfoSalary)
+app.register_blueprint(moreInfoJobs.moreInfoJobs)
 
 # Error handlers.
 
@@ -87,27 +75,9 @@ def internal_error(error):
     #db_session.rollback()
     return render_template('errors/500.html'), 500
 
-
 @app.errorhandler(404)
 def not_found_error(error):
     return render_template('errors/404.html'), 404
-
-@app.route('/dashboardItem', methods=['GET','POST'])
-def samplefunction():
-    print(request.form['fileSub'])
-    with open("blobs/"+request.form['fileSub']+".json") as json_file:
-        data = json.load(json_file)
-        print(data)
-        num = data['count']
-        ratio = '%.3f'%data['ratio']
-        averageComp = data['meanTc']
-        uniqueJobs = data['jobs']
-    return render_template('pages/dashboardItem.html',
-        size = num, 
-        mfRatio = ratio,
-        meanTc = averageComp,
-        jobCount = uniqueJobs)
-
 
 if not app.debug:
     file_handler = FileHandler('error.log')
