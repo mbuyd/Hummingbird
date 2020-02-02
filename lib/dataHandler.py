@@ -1,5 +1,6 @@
 import csv
 import json
+import math
 import statistics
 import sys
 
@@ -21,11 +22,11 @@ def splitCols(data):
     year = []
     salary = []
     for i in data:
-        race.append(i[0])
-        gender.append(i[1])
-        job.append(i[2])
-        year.append(i[3])
-        salary.append(i[4])
+        race.append(int(i[0]))
+        gender.append(int(i[1]))
+        job.append(int(i[2]))
+        year.append(int(i[3]))
+        salary.append(int(i[4]))
     return race, gender, job, year, salary
 
 """
@@ -52,16 +53,16 @@ def sigmaOf(labels, values, criteria):
     return statistics.stdev(data)
 
 # Returns the percentage of criteria in a list
-def ratio(list, criteria):
-    data = [x for x in list if x == criteria]
-    return len(data) / len(list)
+def ratio(lst, criteria):
+    data = [x for x in lst if x == criteria]
+    return len(data) / len(lst)
 
 def unique(lst):
     return list(dict.fromkeys(lst))
 
 # Generate a dashboard summary
 def dashSum(gender, job, salary):
-    return len(gender), ratio(gender, Gender.MALE), mean(salary), len(unique(job))
+    return len(gender), ratio(gender, Gender.MALE.value), math.floor(mean(salary)), len(unique(job))
 
 def main():
     print("Begun handling of data with", sys.argv)
