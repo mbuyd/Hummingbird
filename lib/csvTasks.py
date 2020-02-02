@@ -5,15 +5,15 @@ import math
 instruction = {
     'race' : {
         0: 1.5, # White
-        1: 1,   # Black
-        2: 1.3, # Asian
+        1: .9,   # Black
+        2: 1.2, # Asian
         3: 0.8, # Latino
-        4: .8,  # Indigenous
-        5: .9,  # Pacific
+        4: .7,  # Indigenous
+        5: .8,  # Pacific
     },
     'gender' : {
         0: 1,    # Male
-        1: 0.73, # Female
+        1: 0.83, # Female
     },
     'job' : {
         0: .5,  # Janitor
@@ -25,7 +25,7 @@ instruction = {
         0: 0.8,  # Janitor
         1: 0.9,   # Cashier
         2: 0.95, # Engineer
-        3: 10   # Executive
+        3: 1   # Executive
     }
 }
 
@@ -50,9 +50,9 @@ test_instruction = {
     },
     'year' : {
         0: 1,  # Janitor
-        1: 1,   # Cashier
-        2: 1, # Engineer
-        3: 1   # Executive
+        1: 1.2,   # Cashier
+        2: 2, # Engineer
+        3: 5   # Executive
     }
 }
 
@@ -77,7 +77,7 @@ def generateCSV(sample_size, sample_instructions, global_mean, global_std):
     return answer
 
 def createCSV(lists):
-    with open('sampledata.csv', 'w', newline='') as f:
+    with open('rlyunfairsampledata.csv', 'w', newline='') as f:
         thewriter = csv.writer(f)
         thewriter.writerow(['race', 'gender', 'job', 'salary'])
         for row in lists:
@@ -86,5 +86,3 @@ def createCSV(lists):
 def main():
     for person in generateCSV(1500, instruction, 100000, 10000):
         print(person)
-
-#main()

@@ -125,7 +125,7 @@ $(function () {
         pointStrokeColor    : 'rgba(60,141,188,1)',
         pointHighlightFill  : '#fff',
         pointHighlightStroke: 'rgba(60,141,188,1)',
-        data                : [51512, 54137, 57123, 57901, 60712, 61215, 66126]
+        data                : [51512, Math.floor(Math.random() * 1000) + 54137, Math.floor(Math.random() * 2500) + 57123, Math.floor(Math.random() * 500) + 57901, 60712, Math.floor(Math.random() * 1000) + 61215, Math.floor(Math.random() * 2000) + 66126]
       },
       {
         label               : 'Male',
@@ -136,7 +136,7 @@ $(function () {
         pointStrokeColor    : '#c1c7d1',
         pointHighlightFill  : '#fff',
         pointHighlightStroke: 'rgba(220,220,220,1)',
-        data                : [55127, 58124, 59473, 61267, 65126, 69128, 74881]
+        data                : [Math.floor(Math.random() * 2000) + 55127, Math.floor(Math.random() * 1500) + 58124, 59473, Math.floor(Math.random() * 1500) + 61267, Math.floor(Math.random() * 500) + 65126, Math.floor(Math.random() * 215) + 69128, 74881]
       },
     ]
   }
@@ -179,7 +179,7 @@ $(function () {
     ],
     datasets: [
       {
-        data: [21,45,16],
+        data: [Math.floor(Math.random() * 4) + 20,Math.floor(Math.random() * 7) + 35,Math.floor(Math.random() * 5) + 13],
         backgroundColor : ['#f56954', '#00a65a', '#f39c12'],
       }
     ]
@@ -217,7 +217,7 @@ $(function () {
         pointHoverRadius    : 7,
         pointColor          : '#efefef',
         pointBackgroundColor: '#efefef',
-        data                : [54, 57, 56, 49, 44, 52, 58, 57, 52, 55]
+        data                : [Math.floor(Math.random() * 10) + 47, Math.floor(Math.random() * 10) + 50, 56, 49, Math.floor(Math.random() * 10) + 41, 52, 58, Math.floor(Math.random() * 10) + 54, 52, Math.floor(Math.random() * 10) + 48]
       }
     ]
   }
@@ -261,4 +261,44 @@ $(function () {
     }
   )
 
+
+
+
+  var barGraphCanvas = $('#bar-chart-canvas').get(0).getContext('2d');
+  //$('#revenue-chart').get(0).getContext('2d');
+
+  var barGraphCanvasData = {
+    labels  : ['Black', 'White', 'Asian', 'Latino', 'Indigenous', 'Pacific'],
+    datasets: [{
+      label: 'Annual Salary',
+      backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
+      borderColor: window.chartColors.red,
+      borderWidth: 1,
+      data: [
+        Math.floor(Math.random() * 4000) + 52169,
+        Math.floor(Math.random() * 3000) + 56712,
+        Math.floor(Math.random() * 1780) + 59126,
+        Math.floor(Math.random() * 2500) + 54236,
+        Math.floor(Math.random() * 4800) + 49057,
+        Math.floor(Math.random() * 2500) + 53705
+      ]
+    }, 
+    ]
+  }
+
+  var barGraphCanvasOptions = {
+    maintainAspectRatio : false,
+    responsive : true,
+    legend: {
+      display: false,
+    },
+  }
+
+  // This will get the first returned node in the jQuery collection.
+  var barGraphChart = new Chart(barGraphCanvas, { 
+      type: 'bar', 
+      data: barGraphCanvasData, 
+      options: barGraphCanvasOptions
+    }
+  )
 })
