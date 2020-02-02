@@ -12,11 +12,6 @@ def upload_file():
       f = request.files['file']
       f.save('uploads/' + f.filename)
 
-      csv_data = csvparser.filterCSV('uploads/' + f.filename)
-      csvparser.genderSalaryAVG(csv_data, "M")
-      csvparser.genderSalaryAVG(csv_data, "F")
-      csvparser.raceAVG(csv_data, "white")
-
 
 
       Popen(['python', 'lib/dataHandler.py', 'uploads/f.filename'])
