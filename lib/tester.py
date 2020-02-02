@@ -1,7 +1,7 @@
 import dataHandler
 
 
-"""tests whether two different sets of values of a label are significantly different
+"""tests whether two different sets of values of a label are significantly different, as determined by the salary column
     DATA - the csv file
     COL- the column/potential cause of discrimination being grouped (e.g. race)
     FIRST and SECOND - two cases of COL which are compared against each other ('asian' and 'white')
