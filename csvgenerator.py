@@ -1,9 +1,9 @@
 import csv
 import random
+from lib import Gender, Job, Race
 
 """
-Generates a CSV file of sample size N such that,
-for each
+Generates a CSV file of sample size N.
 
 input:
     N- the sample size
@@ -19,7 +19,7 @@ input:
     global_std- a global std for all.
 """
 def generateCSV(sample_size, sample_instructions, global_mean, global_std):
-    answer = []
+    answer = list(sample_instructions) + ["wage"]
     for person in range(sample_size):
         person_attributes = []
         weighed_mean = global_mean

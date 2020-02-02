@@ -7,6 +7,12 @@ import sys
 sys.path.append('lib')
 import Gender
 Gender = Gender.Gender
+import Job
+Job = Job.Job
+import Race
+Race = Race.Race
+import DataSections
+DataSections = DataSections.DataSections
 
 def parse(file_name):
     data = []
@@ -29,6 +35,7 @@ def splitCols(data):
         salary.append(int(i[4]))
     return race, gender, job, year, salary
 
+
 def singleFilter(labels, values, criteria):
     """
     singleFilter: filters a list based on the contents of another list
@@ -39,14 +46,17 @@ def singleFilter(labels, values, criteria):
                the index the label you are searching for is located
      * criteria: an object identical to the type stored in list that will
                  be compared to objects inside labels
-    
+
     Description:
     The function iterates through labels, looking for matches to
     criteria, When a match is found, the item located at the same
     index in values is added to a new list, which is then returned
     after the entire list has been iterated through.
     """
-    data = [x for x in values if criteria in labels]
+    data = []
+    for i in range(len(labels)):
+        if criteria == labels[i]:
+            data.append(values[i])
     return data
 
 def mean(lst):
@@ -76,6 +86,16 @@ def unique(lst):
 # Generate a dashboard summary
 def dashSum(gender, job, salary):
     return len(gender), ratio(gender, Gender.MALE.value), math.floor(mean(salary)), len(unique(job))
+
+def t_score_calc(data1, data2):
+    c1 = (sigma(data1)**2)/len(data1)
+    c2 = (sigma(data2)**2)/len(data2)
+    m1 = mean(data1)
+    m2 = mean(data2)
+    print("m1 and m2 are", m1, m2)
+    denom= math.sqrt(c1+c2)
+    print(c1, c2, denom)
+    return (m1-m2)/denom
 
 def main():
     print("Begun handling of data with", sys.argv)
