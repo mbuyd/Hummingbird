@@ -1,8 +1,17 @@
-Fabric
-Flask-SQLAlchemy
-Flask-WTF
-WTForms
-coverage
 # ecdsa
 # paramiko
 # pycrypto
+coverage
+Fabric
+Flask-SQLAlchemy
+Flask-WTF
+keras
+matplotlib
+numpy
+pandas
+scikit-learn
+scipy
+statsmodels
+tensorflow
+theano
+WTForms
