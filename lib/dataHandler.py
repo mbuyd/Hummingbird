@@ -29,10 +29,23 @@ def splitCols(data):
         salary.append(int(i[4]))
     return race, gender, job, year, salary
 
-"""
-filters VALUES for VALUES where CRITERIA
-"""
-def filter_jank(labels, values, criteria):
+def singleFilter(labels, values, criteria):
+    """
+    singleFilter: filters a list based on the contents of another list
+
+    Paramters:
+     * labels: a list containing the objects you are searching for
+     * values: a list containing the values you want to return at
+               the index the label you are searching for is located
+     * criteria: an object identical to the type stored in list that will
+                 be compared to objects inside labels
+    
+    Description:
+    The function iterates through labels, looking for matches to
+    criteria, When a match is found, the item located at the same
+    index in values is added to a new list, which is then returned
+    after the entire list has been iterated through.
+    """
     data = [x for x in values if criteria in labels]
     return data
 
@@ -40,7 +53,7 @@ def mean(lst):
     return sum(lst) / len(lst)
 
 def meanOf(labels, values, criteria):
-    data = filter_jank(labels, values, criteria)
+    data = singleFilter(labels, values, criteria)
     return sum(data) / len(data)
 
 # Find standard deviation
@@ -49,7 +62,7 @@ def sigma(lst):
 
 # Find standard deviation of criteria
 def sigmaOf(labels, values, criteria):
-    data = filter(labels, values, criteria)
+    data = singleFilter(labels, values, criteria)
     return statistics.stdev(data)
 
 # Returns the percentage of criteria in a list
@@ -71,6 +84,7 @@ def main():
 
     # ['race', 'gender', 'job', 'year', 'salary']
     race, gender, job, year, salary = splitCols(data)
+    # filter(gender, salary, Gender.FEMALE.value)
     count, ratio, meanTc, jobs = dashSum(gender, job, salary)
 
     dump = {
