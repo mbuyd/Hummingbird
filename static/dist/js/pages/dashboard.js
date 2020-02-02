@@ -264,7 +264,7 @@ $(function () {
 
 
 
-  var barGraphCanvas = $('#bar-chart').get(0).getContext('2d');
+  var barGraphCanvas = $('#bar-chart-canvas').get(0).getContext('2d');
   //$('#revenue-chart').get(0).getContext('2d');
 
   var barGraphCanvasData = {
