@@ -92,7 +92,7 @@ def internal_error(error):
 def not_found_error(error):
     return render_template('errors/404.html'), 404
 
-@app.route('/chicken', methods=['GET','POST'])
+@app.route('/dashboardItem', methods=['GET','POST'])
 def samplefunction():
     print(request.form['fileSub'])
     with open("blobs/"+request.form['fileSub']+".json") as json_file:
@@ -102,7 +102,7 @@ def samplefunction():
         ratio = '%.3f'%data['ratio']
         averageComp = data['meanTc']
         uniqueJobs = data['jobs']
-    return render_template('pages/chicken.html',
+    return render_template('pages/dashboardItem.html',
         size = num, 
         mfRatio = ratio,
         meanTc = averageComp,

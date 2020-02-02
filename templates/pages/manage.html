@@ -149,7 +149,7 @@
                         <img src="static/img/image.jpg" class="img-circle elevation-1" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Daniel Khan</a>
+                        <a href="#" class="d-block">Danial Khan</a>
                     </div>
                 </div>
 
@@ -228,7 +228,7 @@
                                 <p>Here, you can see all the datasets you have uploaded so far.</p>
                                 <ul>
                                     {% for file in files %}
-                                    <form action="/chicken" method="post">
+                                    <form action="/dashboardItem" method="post">
                                         <button type="submit" name="fileSub" value={{file}} class="btn btn-primary"> {{ file }}</button>
                                     </form>
                                     {% endfor %}

@@ -25,7 +25,11 @@ def generate_combinations(iterable):
 def complete_data_analysis(datasetURL):
     results = {}
     #binary gender analysis
-    results[(Gender.MALE, Gender.FEMALE)] = disparitySearch.search_disparity('sampledata.csv',  DataSections.GENDER, Gender.MALE.value, Gender.FEMALE.value)
-    
+    results[(Gender.MALE, Gender.FEMALE)] = dataHandler.search_disparity('sampledata.csv',  DataSections.GENDER, Gender.MALE.value, Gender.FEMALE.value)
+    #race analysis
+    for combination in generate_combinations(Race):
+        results[combination] = dataHandler.search_disparity(datasetURL, DataSections.RACE, combination[0].value, combination[1].value )
+    #job analysis
+    for combination in generate_combinations(Job):
+        results[combination] = dataHandler.search_disparity(datasetURL, DataSections.JOB, combination[0].value, combination[1].value )
     return results
-print(complete_data_analysis("sampledata.csv"))
