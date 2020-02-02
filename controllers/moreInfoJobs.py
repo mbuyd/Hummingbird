@@ -3,7 +3,7 @@ from lib.dataHandler import *
 moreInfoJobs = Blueprint('moreInfoJobs', __name__,
                         template_folder='templates')
 
-@moreInfoJobs.route('[/database/moreInfoJobs/]', methods=['GET','POST'])
+@moreInfoJobs.route('/moreInfoJobs', methods=['GET','POST'])
 def samplefunction():
     print(request.form)
         # permutations = data['data permutations']
