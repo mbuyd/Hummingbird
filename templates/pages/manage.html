@@ -20,9 +20,9 @@
             </ul>
 
             <!-- SEARCH FORM -->
-            <form class="form-inline ml-3" method = "post">
+            <form class="form-inline ml-3" method="post">
                 <div class="input-group input-group-sm">
-                    <input class="form-control form-control-navbar" type="search" name = "search" placeholder="Search"
+                    <input class="form-control form-control-navbar" type="search" name="search" placeholder="Search"
                         aria-label="Search">
                     <div class="input-group-append">
                         <button class="btn btn-navbar" type="submit">
@@ -221,11 +221,16 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h2 class="card-title" ><b>See all datasets</b></h2>
+                                <h2 class="card-title"><b>See all datasets</b></h2>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <p>Here, you can see all the datasets you have uploaded so far.</p>
+                                <ul>
+                                    {% for file in files %}
+                                    <li><a href="{{ file }}">{{ file }}</a></li>
+                                    {% endfor %}
+                                </ul>
                             </div>
                             <!-- /.card-body -->
                         </div>

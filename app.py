@@ -8,6 +8,7 @@ import logging
 from logging import Formatter, FileHandler
 from forms import *
 import os
+import sys
 import webbrowser
 
 
@@ -18,6 +19,12 @@ import parser
 #----------------------------------------------------------------------------#
 # App Config.
 #----------------------------------------------------------------------------#
+
+MIN_PYTHON = (3, 5)
+
+def versionCheck():
+    if sys.version_info < MIN_PYTHON:
+        sys.exit("Python %s.%s or later is required.\n" % MIN_PYTHON)
 
 def create_app():
     return Flask(__name__);
