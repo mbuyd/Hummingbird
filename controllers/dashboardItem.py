@@ -14,9 +14,11 @@ def samplefunction():
         averageComp = data['meanTc']
         uniqueJobs = data['jobs']
         tValue = data['t value']
+        permutations = data['data permutations']
     return render_template('pages/dashboardItem.html',
         size = num, 
         mfRatio = ratio,
         meanTc = averageComp,
         jobCount = uniqueJobs, 
-        tVal = tValue)
+        tVal = tValue,
+        dataPermutations = permutations)

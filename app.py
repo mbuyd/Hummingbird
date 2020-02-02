@@ -92,23 +92,6 @@ def internal_error(error):
 def not_found_error(error):
     return render_template('errors/404.html'), 404
 
-@app.route('/dashboardItem', methods=['GET','POST'])
-def samplefunction():
-    print(request.form['fileSub'])
-    with open("blobs/"+request.form['fileSub']+".json") as json_file:
-        data = json.load(json_file)
-        print(data)
-        num = data['count']
-        ratio = '%.3f'%data['ratio']
-        averageComp = data['meanTc']
-        uniqueJobs = data['jobs']
-    return render_template('pages/dashboardItem.html',
-        size = num, 
-        mfRatio = ratio,
-        meanTc = averageComp,
-        jobCount = uniqueJobs)
-
-
 if not app.debug:
     file_handler = FileHandler('error.log')
     file_handler.setFormatter(
