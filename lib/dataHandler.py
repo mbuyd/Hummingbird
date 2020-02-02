@@ -108,7 +108,7 @@ def main():
     race, gender, job, year, salary = splitCols(data)
     # filter(gender, salary, Gender.FEMALE.value)
     count, ratio, meanTc, jobs = dashSum(gender, job, salary)
-    tVal = disparitySearch('sampledata.csv',  DataSections.GENDER, Gender.MALE.value, Gender.FEMALE.value) #femal disparity but like... we should work it out
+    tVal = disparitySearch.search_disparity('sampledata.csv',  DataSections.GENDER, Gender.MALE.value, Gender.FEMALE.value) #femal disparity but like... we should work it out
 
     dump = {
         "count": count,
