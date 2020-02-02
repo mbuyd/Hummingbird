@@ -228,7 +228,7 @@
                                 <p>Here, you can see all the datasets you have uploaded so far.</p>
                                 <ul>
                                     {% for file in files %}
-                                    <li><a href="dashboard/{{ file }}">{{ file }}</a></li>
+                                    <li><a href="{{ file }}">{{ file }}</a></li>
                                     {% endfor %}
                                 </ul>
                             </div>

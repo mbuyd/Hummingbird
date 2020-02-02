@@ -10,16 +10,3 @@ def show():
         mfRatio = 99,
         meanTc = 5000000,
         jobCount = 5)
-
-@dashboard.route('/dashboard/<filename>')
-def filenameShow(filename):
-    #print(filename)
-    arrays = parse('uploads/'+filename)
-    #print(arrays)
-    sizeOfArray = len(arrays)
-    
-    return render_template('pages/dashboard.html',
-        size = sizeOfArray, 
-        mfRatio = 99,
-        meanTc = 5000000,
-        jobCount = 5)
