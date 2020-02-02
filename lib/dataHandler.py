@@ -107,6 +107,32 @@ def search_disparity(data, col, first, second):
         data2 = data[DataSections.SALARY.value]
     return pt_score_calc(data1, data2)
 
+
+"""Takes an interable and finds all possible, non duplicating possible pairs
+returns: a list of tuples
+"""
+def generate_combinations(iterable):
+    result = []
+    avoid = []
+    for iteration in iterable:
+        for iteration2 in iterable:
+            if iteration2 not in avoid and iteration2 is not iteration:
+                result += [(iteration, iteration2)]
+            avoid += [iteration]
+    return result
+def complete_data_analysis(datasetURL):
+    results = {}
+    #binary gender analysis
+    results[(Gender.MALE, Gender.FEMALE)] = search_disparity('sampledata.csv',  DataSections.GENDER, Gender.MALE.value, Gender.FEMALE.value)
+    #race analysis
+    for combination in generate_combinations(Race):
+        results[combination] = search_disparity(datasetURL, DataSections.RACE, combination[0].value, combination[1].value )
+    #job analysis
+    for combination in generate_combinations(Job):
+        results[combination] = search_disparity(datasetURL, DataSections.JOB, combination[0].value, combination[1].value )
+    return results
+
+
 def main():
     print("Begun handling of data with", sys.argv)
     argumentList = sys.argv[1:]
@@ -121,7 +147,7 @@ def main():
     print(salary)
     # filter(gender, salary, Gender.FEMALE.value)
     count, ratio, meanTc, jobs = dashSum(gender, job, salary)
-    tVal = search_disparity('sampledata.csv',  DataSections.GENDER, Gender.MALE.value, Gender.FEMALE.value) #femal disparity but like... we should work it out
+    comprehensive_data_analysis = complete_data_analysis(argumentList[0])
 
     dump = {
         "count": count,
@@ -129,6 +155,7 @@ def main():
         "meanTc": meanTc,
         "jobs": jobs,
         "t value": tVal,
+        "data permutations": comprehensive_data_analysis,
         #"p value": pVal,
         }
     with open('blobs/' + argumentList[0][7:-3] + "json", 'w') as file:
