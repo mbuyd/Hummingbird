@@ -93,7 +93,9 @@ def main():
         "meanTc": meanTc,
         "jobs": jobs
     }
-    with open('blobs/' + argumentList[0][7:-3] + ".json", 'w') as file:
+    with open('blobs/' + argumentList[0][7:-3] + "json", 'w') as file:
         json.dump(dump, file)
+        print("[dataHandler] saved!")
 
-#main()
+if len(sys.argv) > 1:
+    main()
