@@ -1,10 +1,11 @@
 import dataHandler
 
 
-"""tests whether two different sets of values of a label are significantly different"""
-"""data is the csv file, col is the column that we're grouping by (e.g. race), first is the
-name of the first seperator (e.g. white) and second is the other (e.g. latino
-or can be the whole data set)"""
+"""tests whether two different sets of values of a label are significantly different
+    DATA - the csv file
+    COL- the column/potential cause of discrimination being grouped (e.g. race)
+    FIRST and SECOND - two cases of COL which are compared against each other ('asian' and 'white')
+"""
 def tester(data, col, first, second):
     #data= parse(data)
     data=[[2,0,3,1308697], [2,1,0,61831], [2,0,0,62847], [4,1,2,89537]]

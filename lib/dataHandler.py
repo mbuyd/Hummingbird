@@ -27,8 +27,10 @@ def splitCols(data):
         year.append(i[3])
         salary.append(i[4])
     return race, gender, job, year, salary
+    
 
 """
+filter_jank:
 Takes a CRITERIA that a label is supposed to have and returns a list of the corresponding values.
 
 Labels: a list of things that we are trying to match to the CRITERIA
