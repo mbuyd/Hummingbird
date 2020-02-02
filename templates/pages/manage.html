@@ -229,7 +229,7 @@
                                 <ul>
                                     {% for file in files %}
                                     <form action="/dashboardItem" method="post">
-                                        <button type="submit" name="fileSub" value={{file}}> {{ file }}</button>
+                                        <button type="submit" name="fileSub" value={{file}} class="btn btn-primary"> {{ file }}</button>
                                     </form>
                                     {% endfor %}
                                 </ul>
