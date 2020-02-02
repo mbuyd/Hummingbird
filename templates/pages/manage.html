@@ -228,7 +228,7 @@
                                 <p>Here, you can see all the datasets you have uploaded so far.</p>
                                 <ul>
                                     {% for file in files %}
-                                    <form action="/chicken" method="post">
+                                    <form action="/dashboardItem" method="post">
                                         <button type="submit" name="fileSub" value={{file}}> {{ file }}</button>
                                     </form>
                                     {% endfor %}
