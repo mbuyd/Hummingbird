@@ -3,7 +3,8 @@ import json
 import statistics
 import sys
 
-from . import Gender
+sys.path.append('lib')
+import Gender
 Gender = Gender.Gender
 
 def parse(file_name):
@@ -63,6 +64,7 @@ def dashSum(gender, job, salary):
     return len(gender), ratio(gender, Gender.MALE), mean(salary), len(unique(job))
 
 def main():
+    print("Begun handling of data with", sys.argv)
     argumentList = sys.argv[1:]
     data = parse(argumentList[0])
 
