@@ -82,62 +82,6 @@ def forgot():
 
 # Error handlers.
 
-@app.route('/', methods=['GET', 'POST'])
-def searchHome():
-    search = request.form
-    
-    if request.method == 'POST':
-        print("SHOULD SEARCH: "+search.get('search'))
-        url = "http://www.google.com/search?q="+search.get('search')
-        webbrowser.open_new_tab(url)
-        return render_template('pages/home.html')
-    #return render_template('pages/upload.html')
-
-@app.route('/dashboard', methods=['GET', 'POST'])
-def searchDashboard():
-    search = request.form
-    
-    if request.method == 'POST':
-        print("SHOULD SEARCH: "+search.get('search'))
-        url = "http://www.google.com/search?q="+search.get('search')
-        webbrowser.open_new_tab(url)
-        return render_template('pages/dashboard.html',
-        size = 500, 
-        mfRatio = 99,
-        meanTc = 5000000,
-        jobCount = 5)
-
-@app.route('/manage', methods=['GET', 'POST'])
-def searchManage():
-    search = request.form
-    if request.method == 'POST':
-        print("SHOULD SEARCH: "+search.get('search'))
-        url = "http://www.google.com/search?q="+search.get('search')
-        files = os.listdir('uploads')
-        webbrowser.open_new_tab(url)
-        return render_template('pages/manage.html', files = files)
-
-@app.route('/upload', methods=['GET', 'POST'])
-def searchUpload():
-    search = request.form
-    
-    if request.method == 'POST':
-        print("SHOULD SEARCH: "+search.get('search'))
-        url = "http://www.google.com/search?q="+search.get('search')
-        webbrowser.open_new_tab(url)
-        return render_template('pages/upload.html')
-
-@app.route('/search', methods=['GET', 'POST'])
-def searchSuccess():
-    search = request.form
-    
-    if request.method == 'POST':
-        print("SHOULD SEARCH: "+search.get('search'))
-        url = "http://www.google.com/search?q="+search.get('search')
-        webbrowser.open_new_tab(url)
-        return render_template('pages/home.html')
-
-
 @app.errorhandler(500)
 def internal_error(error):
     #db_session.rollback()
