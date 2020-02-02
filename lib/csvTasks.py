@@ -87,4 +87,4 @@ def main():
     for person in generateCSV(1500, instruction, 100000, 10000):
         print(person)
 
-main()
+# main()
