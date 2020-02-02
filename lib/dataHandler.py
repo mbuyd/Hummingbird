@@ -1,5 +1,6 @@
 import csv
 import json
+import math
 import statistics
 import sys
 
@@ -21,23 +22,31 @@ def splitCols(data):
     year = []
     salary = []
     for i in data:
-        race.append(i[0])
-        gender.append(i[1])
-        job.append(i[2])
-        year.append(i[3])
-        salary.append(i[4])
+        race.append(int(i[0]))
+        gender.append(int(i[1]))
+        job.append(int(i[2]))
+        year.append(int(i[3]))
+        salary.append(int(i[4]))
     return race, gender, job, year, salary
-    
 
-"""
-filter_jank:
-Takes a CRITERIA that a label is supposed to have and returns a list of the corresponding values.
 
-Labels: a list of things that we are trying to match to the CRITERIA
-values: a list of entries that contains the values of interest
-criteria: the id that the label in LABELS has to match
-"""
-def filter_jank(labels, values, criteria):
+def singleFilter(labels, values, criteria):
+    """
+    singleFilter: filters a list based on the contents of another list
+
+    Paramters:
+     * labels: a list containing the objects you are searching for
+     * values: a list containing the values you want to return at
+               the index the label you are searching for is located
+     * criteria: an object identical to the type stored in list that will
+                 be compared to objects inside labels
+
+    Description:
+    The function iterates through labels, looking for matches to
+    criteria, When a match is found, the item located at the same
+    index in values is added to a new list, which is then returned
+    after the entire list has been iterated through.
+    """
     data = [x for x in values if criteria in labels]
     return data
 
@@ -45,7 +54,7 @@ def mean(lst):
     return sum(lst) / len(lst)
 
 def meanOf(labels, values, criteria):
-    data = filter_jank(labels, values, criteria)
+    data = singleFilter(labels, values, criteria)
     return sum(data) / len(data)
 
 # Find standard deviation
@@ -54,20 +63,20 @@ def sigma(lst):
 
 # Find standard deviation of criteria
 def sigmaOf(labels, values, criteria):
-    data = filter(labels, values, criteria)
+    data = singleFilter(labels, values, criteria)
     return statistics.stdev(data)
 
 # Returns the percentage of criteria in a list
-def ratio(list, criteria):
-    data = [x for x in list if x == criteria]
-    return len(data) / len(list)
+def ratio(lst, criteria):
+    data = [x for x in lst if x == criteria]
+    return len(data) / len(lst)
 
 def unique(lst):
     return list(dict.fromkeys(lst))
 
 # Generate a dashboard summary
 def dashSum(gender, job, salary):
-    return len(gender), ratio(gender, Gender.MALE), mean(salary), len(unique(job))
+    return len(gender), ratio(gender, Gender.MALE.value), math.floor(mean(salary)), len(unique(job))
 
 def main():
     print("Begun handling of data with", sys.argv)
@@ -76,6 +85,7 @@ def main():
 
     # ['race', 'gender', 'job', 'year', 'salary']
     race, gender, job, year, salary = splitCols(data)
+    # filter(gender, salary, Gender.FEMALE.value)
     count, ratio, meanTc, jobs = dashSum(gender, job, salary)
 
     dump = {
@@ -87,4 +97,4 @@ def main():
     with open('blobs/' + argumentList[0][7:-3] + ".json", 'w') as file:
         json.dump(dump, file)
 
-main()
+#main()

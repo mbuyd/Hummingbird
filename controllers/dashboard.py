@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, abort
-
+from lib.dataHandler import *
 dashboard = Blueprint('dashboard', __name__,
                         template_folder='templates')
 
