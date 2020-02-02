@@ -57,7 +57,6 @@ def singleFilter(labels, values, criteria):
     for i in range(len(labels)):
         if criteria == labels[i]:
             data.append(values[i])
-    print(len(data))
     return data
 
 def mean(lst):
@@ -89,7 +88,7 @@ def dashSum(gender, job, salary):
     return len(gender), ratio(gender, Gender.MALE.value), math.floor(mean(salary)), len(unique(job))
 
 def t_score_calc(data1, data2):
-    denom= math.sqrt((sigma(data1)**2/len(first))+(sigma(data2)**2/len(second)))
+    denom= math.sqrt((sigma(data1)**2/len(data1))+(sigma(data2)**2/len(data2)))
     return (mean(data1) - mean(data2))/denom
 
 def main():
