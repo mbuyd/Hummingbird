@@ -5,18 +5,29 @@ dashboardItem = Blueprint('dashboardItem', __name__,
 
 @dashboardItem.route('/dashboardItem', methods=['GET','POST'])
 def samplefunction():
-    print(request.form['fileSub'])
-    with open("blobs/"+request.form['fileSub']+".json") as json_file:
-        data = json.load(json_file)
-        print(data)
-        num = data['count']
-        ratio = '%.3f'%data['ratio']
-        averageComp = data['meanTc']
-        uniqueJobs = data['jobs']
-        tValue = data['t value']
-    return render_template('pages/dashboardItem.html',
-        size = num, 
-        mfRatio = ratio,
-        meanTc = averageComp,
-        jobCount = uniqueJobs, 
-        tVal = tValue)
+    if (request.method == 'POST'):
+        print(request.form['fileSub'])
+        with open("blobs/"+request.form['fileSub']+".json") as json_file:
+            data = json.load(json_file)
+            print(data)
+            num = data['count']
+            ratio = '%.3f'%data['ratio']
+            averageComp = data['meanTc']
+            uniqueJobs = data['jobs']
+            gend = int(data['p_val_g']*1000)/1000
+            rac = int(data['p_val_race']*1000)/1000
+            feedback = data['feedback']
+            # tValue = data['t value']
+            # permutations = data['data permutations']
+        return render_template('pages/dashboardItem.html',
+            size = num,
+            mfRatio = ratio,
+            meanTc = averageComp,
+            jobCount = uniqueJobs,
+            p_val_g = gend,
+            p_val_race = rac,
+            recommendations = feedback) #, 
+            #tVal = tValue,
+            #dataPermutations = permutations)
+    else:
+        return render_template('pages/dashboardItem.html')

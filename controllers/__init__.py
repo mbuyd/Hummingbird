@@ -4,3 +4,7 @@ from . import manage
 from . import success
 from . import upload
 from . import dashboardItem
+from . import moreInfoCount
+from . import moreInfoGender
+from . import moreInfoSalary
+from . import moreInfoJobs

@@ -1,5 +1,5 @@
 {% extends 'layouts/dash.html' %}
-{% block title %}Home{% endblock %}
+{% block title %}moreInfoGender{% endblock %}
 {% block content %}
 
 <body class="hold-transition sidebar-mini">
@@ -174,7 +174,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/manage" class="nav-link active">
+                            <a href="/manage" class="nav-link">
                                 <i class="nav-icon fas fa-database"></i>
                                 <p>
                                     Manage Data
@@ -182,7 +182,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/dashboard" class="nav-link">
+                            <a href="/dashboard" class="nav-link active">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
@@ -204,11 +204,13 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>My datasets</h1>
+                            <h1>Male-to-Female Ratio</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item active">My Info</li>
+                                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                                <li class="breadcrumb-item"><a href="/dashboardItem">Database</a></li>
+                                <li class="breadcrumb-item active">Gender Ratio</li>
                             </ol>
                         </div>
                     </div>
@@ -221,18 +223,12 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h2 class="card-title"><b>See all datasets</b></h2>
+                                <h2 class="card-title" ><b>This is slightly discriminatory!</b></h2>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <p>Here, you can see all the datasets you have uploaded so far.</p>
-                                <ul>
-                                    {% for file in files %}
-                                    <form action="/dashboardItem" method="post" style="padding: 5px">
-                                        <button type="submit" name="fileSub" value={{file}} class="btn btn-primary"> {{ file }}</button>
-                                    </form>
-                                    {% endfor %}
-                                </ul>
+                                <p>Equity First!
+                                </p>
                             </div>
                             <!-- /.card-body -->
                         </div>
@@ -245,4 +241,5 @@
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
+
         {% endblock %}
