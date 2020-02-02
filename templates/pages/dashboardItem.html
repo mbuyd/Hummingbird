@@ -251,13 +251,12 @@
                                     </h3>
                                 </div>
                                 <!-- /.card-header -->
-                                
+
                                 <div class="card-body">
                                     <ul class="todo-list" data-widget="todo-list">
-                                        {% for feedback in recommendations %}
+
                                         <li>
                                             <!-- drag handle -->
-                                            
                                             <span class="handle">
                                                 <i class="fas fa-ellipsis-v"></i>
                                                 <i class="fas fa-ellipsis-v"></i>
@@ -334,10 +333,25 @@
                                             <small class="badge badge-secondary"><i class="far fa-clock"></i> 1
                                                 yr </small>
                                         </li>
+                                        {% for feedback in recommendations %}
+                                        <li>
+                                            <!-- drag handle -->
+
+                                            <span class="handle">
+                                                <i class="fas fa-ellipsis-v"></i>
+                                                <i class="fas fa-ellipsis-v"></i>
+                                            </span>
+                                            <!-- checkbox -->
+                                            <div class="icheck-primary d-inline ml-2">
+                                              <input type="checkbox" value="" name="todo{{feedback}}" id="todoCheck{{feedback}}">
+                                                <label for="todoCheck{{feedback}}"></label>
+                                            </div>
+                                            <span class="text">{{feedback}}</span>
+                                            </li>
                                         {% endfor %}
                                     </ul>
                                 </div>
-                                        
+
                                 <!-- /.card-body -->
                                 <div class="card-footer clearfix">
                                     <button type="button" class="btn btn-info float-right" onclick="window.open('https://www.google.com/search?q=financial+consulting+near+me', '_blank')"><i class="fas fa-plus"></i>
