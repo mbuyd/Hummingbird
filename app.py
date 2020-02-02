@@ -63,6 +63,10 @@ app.register_blueprint(success.success)
 app.register_blueprint(dashboard.dashboard)
 app.register_blueprint(manage.manage)
 app.register_blueprint(dashboardItem.dashboardItem)
+app.register_blueprint(moreInfoCount.moreInfoCount)
+app.register_blueprint(moreInfoGender.moreInfoGender)
+app.register_blueprint(moreInfoSalary.moreInfoSalary)
+app.register_blueprint(moreInfoJobs.moreInfoJobs)
 
 # Error handlers.
 
