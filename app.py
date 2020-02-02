@@ -10,7 +10,7 @@ from forms import *
 import os
 import sys
 import webbrowser
-
+import json
 
 from lib import *
 from controllers import *
@@ -91,6 +91,23 @@ def internal_error(error):
 @app.errorhandler(404)
 def not_found_error(error):
     return render_template('errors/404.html'), 404
+
+@app.route('/chicken', methods=['GET','POST'])
+def samplefunction():
+    print(request.form['fileSub'])
+    with open("blobs/"+request.form['fileSub']+".json") as json_file:
+        data = json.load(json_file)
+        print(data)
+        num = data['count']
+        ratio = '%.3f'%data['ratio']
+        averageComp = data['meanTc']
+        uniqueJobs = data['jobs']
+    return render_template('pages/chicken.html',
+        size = num, 
+        mfRatio = ratio,
+        meanTc = averageComp,
+        jobCount = uniqueJobs)
+
 
 if not app.debug:
     file_handler = FileHandler('error.log')

@@ -1,13 +1,13 @@
 from flask import Blueprint, render_template, abort
 from lib.dataHandler import *
-dashboard = Blueprint('dashboard', __name__,
+chicken = Blueprint('chicken', __name__,
                         template_folder='templates')
 
-@dashboard.route('/dashboard')
+"""@chicken.route('/chicken')
 def show():
-    return render_template('pages/dashboard.html',
+    return render_template('pages/chicken.html',
         size = 500, 
         mfRatio = 99,
         meanTc = 5000000,
-        jobCount = 5)
+        jobCount = 5)"""
 
