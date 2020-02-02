@@ -179,7 +179,7 @@ $(function () {
     ],
     datasets: [
       {
-        data: [Math.floor(Math.random() * 4) + 20,Math.floor(Math.random() * 7) + 41,Math.floor(Math.random() * 5) + 13],
+        data: [Math.floor(Math.random() * 4) + 20,Math.floor(Math.random() * 7) + 35,Math.floor(Math.random() * 5) + 13],
         backgroundColor : ['#f56954', '#00a65a', '#f39c12'],
       }
     ]
