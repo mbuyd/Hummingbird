@@ -27,7 +27,10 @@ def splitCols(data):
         salary.append(i[4])
     return race, gender, job, year, salary
 
-def filter(labels, values, criteria):
+"""
+filters VALUES for VALUES where CRITERIA
+"""
+def filter_jank(labels, values, criteria):
     data = [x for x in values if criteria in labels]
     return data
 
@@ -35,7 +38,7 @@ def mean(lst):
     return sum(lst) / len(lst)
 
 def meanOf(labels, values, criteria):
-    data = filter(labels, values, criteria)
+    data = filter_jank(labels, values, criteria)
     return sum(data) / len(data)
 
 # Find standard deviation
