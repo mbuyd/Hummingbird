@@ -27,4 +27,4 @@ def search_disparity(data, col, first, second):
         data2 = data[DataSections.SALARY.value]
     return dataHandler.pt_score_calc(data1, data2)
 
-search_disparity("sampledata.csv", DataSections.GENDER, Gender.MALE.value, Gender.FEMALE.value)
+# search_disparity("sampledata.csv", DataSections.GENDER, Gender.MALE.value, Gender.FEMALE.value)

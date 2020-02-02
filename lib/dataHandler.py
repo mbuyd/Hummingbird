@@ -88,7 +88,7 @@ def unique(lst):
 
 # Generate a dashboard summary
 def dashSum(gender, job, salary):
-    return len(gender), ratio(gender, Gender.MALE.value), math.floor(mean(salary)), len(unique(job))
+    return len(gender), math.floor(100*ratio(gender, Gender.MALE.value)), math.floor(mean(salary)), len(unique(job))
 
 def pt_score_calc(data1, data2):
     c1 = (sigma(data1)**2)/len(data1)

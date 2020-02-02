@@ -3,3 +3,4 @@ from . import home
 from . import manage
 from . import success
 from . import upload
+from . import dashboardItem
