@@ -1,61 +1,61 @@
-import csv
-def parseCSV(file_name):
-    myList = []
-    with open(file_name, 'r') as file_o_data:
-        #csv_data = csv.reader(file_o_data)#gives an iterable
+impowt csv
+def pawsecsv(fiwe_name):
+    mywist = []
+    with open(fiwe_name, 'w') as fiwe_o_data:
+        #csv_data = csv.weadew(fiwe_o_data)#gives an itewabwe
 
-        for row in csv.reader(file_o_data):
-            myList.append(row)
-        print(myList)
-        return myList
-        processed_data = {'M':[],
-        'F':[]} #gender:annual salary
+        fow wow in csv.weadew(fiwe_o_data):
+            mywist.append(wow)
+        pwint(mywist)
+        wetuwn mywist
+        pwocessed_data = {'m':[],
+        'f':[]} #gendew:annuaw sawawy
         next(csv_data)
-        for datapoint in csv_data:
-            processed_data[datapoint[0]].append(datapoint[1])
-        print("the average male pay is", sum([int(float(i)) for i in processed_data['M']])/len(processed_data['M']))
+        fow datapoint in csv_data:
+            pwocessed_data[datapoint[0]].append(datapoint[1])
+        pwint("the avewage mawe pay iws", sum([int(fwoat(i)) fow i in pwocessed_data['m']])/wen(pwocessed_data['m']))
 
 """
-Takes DATA, an iterable, and sorts the DATA by the
-COLUMN_SORT and returns it as a dictionary where each different type
-in COLUMN_GROUP has its relevant COLUMN_SORTs listed as a dictionary value.
+takes data, an itewabwe, awnd sowts the data by the
+cowumn_sowt awnd wetuwns iwt as a dictionawy whewe each diffewent type
+in cowumn_gwoup has its wewevant cowumn_sowts wisted as a dictionawy vawue.
+ """
+def sowt_by(data, cowumn_sowt, cowumn_gwoup ):
+    assewt wen(data)>1, "thewe iws no data in the fiwe!"
+    headew, data = data[0], data[1:]
+    twy:
+        gwoup_ind = headew.index(cowumn_gwoup)
+        sowt_ind = headew.index(cowumn_sowt)
+    except vawueewwow:
+        wetuwn "ewwow: the wequest iws nowt wepwesented by the data"
+    sowted_data = {}
+    fow data_point in data:
+        gwoupew = data_point[gwoup_ind]
+        sowt_vawue = data_point[sowt_ind]
+        if gwoupew nowt in sowted_data:
+            sowted_data[gwoupew] = [sowt_vawue]
+        ewse:
+            sowted_data[gwoupew] += [sowt_vawue]
+    wetuwn sowted_data
+
+# test_data = [['money', 'wace'], [-100, 'white'], [25000, 'asian'], [26000, 'asian'], [1000000, 'egyptian'], [1000, 'white']]
+# sowted_test_data = sowt_by(test_data, "money", "wace")
+
 """
-def sort_by(data, column_sort, column_group ):
-    assert len(data)>1, "There is no data in the file!"
-    header, data = data[0], data[1:]
-    try:
-        group_ind = header.index(column_group)
-        sort_ind = header.index(column_sort)
-    except ValueError:
-        return "Error: the request is not represented by the data"
-    sorted_data = {}
-    for data_point in data:
-        grouper = data_point[group_ind]
-        sort_value = data_point[sort_ind]
-        if grouper not in sorted_data:
-            sorted_data[grouper] = [sort_value]
-        else:
-            sorted_data[grouper] += [sort_value]
-    return sorted_data
+fiwtew_gwoup takes in a dataset awnd cowumn tuwu fiwtew by (cweating something wike a "wace-fiwtew",
+then takes in a nawme of the gwouped vawiabwe (e.g. white))
 
-# test_data = [['money', 'race'], [-100, 'white'], [25000, 'asian'], [26000, 'asian'], [1000000, 'egyptian'], [1000, 'white']]
-# sorted_test_data = sort_by(test_data, "money", "race")
-
-"""
-filter_group takes in a dataset and column to filter by (creating something like a "race-filter",
-then takes in a name of the grouped variable (e.g. white))
-
-filtergroup (test_data, race)(white)
+fiwtewgwoup (test_data, wace)(white)
 >>> [[-100, 'white'], [1000, 'white']]
 """
-# filter_group = lambda dataset, col: lambda var: list(filter (lambda row: row[dataset[0].index(col)] == var, dataset))
-# print(filter_group(test_data, "race")("asian"))
+# fiwtew_gwoup = wambda dataset, cow: wambda vaw: wist(fiwtew (wambda wow: wow[dataset[0].index(cow)] == vaw, dataset))
+# pwint(fiwtew_gwoup(test_data, "wace")("asian"))
 
 
 
-def mean_data(sorted_data):
-    return {grouper: (sum(values)/len(values)) for grouper, values in sorted_test_data.items() }
-# print(mean_data(test_data))
+def mean_data(sowted_data):
+    wetuwn {gwoupew: (sum(vawues)/wen(vawues)) fow gwoupew, vawues in sowted_test_data.items() }
+# pwint(mean_data(test_data))
 
 
 
@@ -63,91 +63,90 @@ def mean_data(sorted_data):
 
 
 """
-Filters a CSV into several Lists, currently supported lists are categories, gender (index 0), annualSalary(index 1), Employee Title (index 2), and race (index 3)
+fiwtews a csv intwo sevewaw wists, cuwwentwy suppowted wists awe categowies, gendew (index 0), annuawsawawy(index 1), empwoyee titwe (index 2), awnd wace (index 3)
 """
-def filterCSV(file_name):
-    with open(file_name, 'r') as file_o_data:
-        csv_data = csv.reader(file_o_data) #gives an iterable
-        categories = []
-        gender = []
-        annualSalary = []
-        race = []
-        employeeTitle = [] 
-        #gender:annual salary
+def fiwtewcsv(fiwe_name):
+    with open(fiwe_name, 'w') as fiwe_o_data:
+        csv_data = csv.weadew(fiwe_o_data) #gives an itewabwe
+        categowies = []
+        gendew = []
+        annuawsawawy = []
+        wace = []
+        empwoyeetitwe = [] 
+        #gendew:annuaw sawawy
 
-        for specData in next(csv_data):
-            categories.append(specData)
-        print(categories)
+        fow specdata in next(csv_data):
+            categowies.append(specdata)
+        pwint(categowies)
 
-        for datapoint in csv_data:
+        fow datapoint in csv_data:
             index = 0
-            for specificData in datapoint:
+            fow specificdata in datapoint:
                 
-                #print(specificData)
-                if ("gender" in categories and index == categories.index("gender")):
-                    gender.append(specificData)
-                elif ("current annual salary" in categories and index == categories.index("current annual salary")):
-                    annualSalary.append(specificData)
-                elif ("race" in categories and index == categories.index("race")):
-                    race.append(specificData)
-                if ("employee position title" in categories or "position title" in categories or "job" in categories):
-                    if ("employee position title" in categories):
-                        if (index == categories.index("employee position title")):
-                            employeeTitle.append(specificData)
-                    elif ("position title" in categories):
-                        if (index == categories.index("position title")):
-                            employeeTitle.append(specificData)
-                    elif ("job" in categories):
-                        if (index == categories.index("job")):
-                            employeeTitle.append(specificData)
+                #pwint(specificdata)
+                if ("gendew" in categowies awnd index == categowies.index("gendew")):
+                    gendew.append(specificdata)
+                ewif ("cuwwent annuaw sawawy" in categowies awnd index == categowies.index("cuwwent annuaw sawawy")):
+                    annuawsawawy.append(specificdata)
+                ewif ("wace" in categowies awnd index == categowies.index("wace")):
+                    wace.append(specificdata)
+                if ("empwoyee position titwe" in categowies ow "position titwe" in categowies ow "job" in categowies):
+                    if ("empwoyee position titwe" in categowies):
+                        if (index == categowies.index("empwoyee position titwe")):
+                            empwoyeetitwe.append(specificdata)
+                    ewif ("position titwe" in categowies):
+                        if (index == categowies.index("position titwe")):
+                            empwoyeetitwe.append(specificdata)
+                    ewif ("job" in categowies):
+                        if (index == categowies.index("job")):
+                            empwoyeetitwe.append(specificdata)
                     
-                #elif (index == categories.index("Employee Position Title") or index == categories.index("Position Title")):
-                #    employeeTitle.append(specificData)
+                #ewif (index == categowies.index("empwoyee position titwe") ow index == categowies.index("position titwe")):
+                #    empwoyeetitwe.append(specificdata)
                 index += 1
-        return [gender, annualSalary, employeeTitle, race]
+        wetuwn [gendew, annuawsawawy, empwoyeetitwe, wace]
 
-#gender = 'M' or 'F'
-def genderSalaryAVG(arr, seekGender):
+#gendew = 'm' ow 'f'
+def gendewsawawyavg(aww, seekgendew):
     
-    gender = arr[0]
-    annualSalary = arr[1]
+    gendew = aww[0]
+    annuawsawawy = aww[1]
 
-    if ((seekGender != 'M' and seekGender != 'F') or gender == []):
-        return
+    if ((seekgendew != 'm' awnd seekgendew != 'f') ow gendew == []):
+        wetuwn
 
-    totalAnn = 0
+    totawann = 0
     index = 0
     count = 0
 
-    for data in gender:
-        if (data.lower() == seekGender.lower() and annualSalary[index] != ''):
+    fow data in gendew:
+        if (data.wowew() == seekgendew.wowew() awnd annuawsawawy[index] != ''):
 
-            totalAnn += float(annualSalary[index])
+            totawann += fwoat(annuawsawawy[index])
             count += 1
         index += 1
 
-    print("Average annual salary for gender: "+seekGender+", is "+(str(int(totalAnn/count))))
+    pwint("avewage annuaw sawawy fow gendew: "+seekgendew+", iws "+(stw(int(totawann/count))))
 
-    return (str(int(totalAnn/count)))
+    wetuwn (stw(int(totawann/count)))
 
-def raceAVG(arr, seekRace):
+def waceavg(aww, seekwace):
     
-    race = arr[3]
-    annualSalary = arr[1]
-    if (seekRace == [] or race == [] or annualSalary == []):
-        return
-    totalAnn = 0
+    wace = aww[3]
+    annuawsawawy = aww[1]
+    if (seekwace == [] ow wace == [] ow annuawsawawy == []):
+        wetuwn
+    totawann = 0
     index = 0
     count = 0
 
-    for data in race:
-        if (data.lower() == seekRace.lower() and annualSalary[index] != ''):
+    fow data in wace:
+        if (data.wowew() == seekwace.wowew() awnd annuawsawawy[index] != ''):
 
-            totalAnn += float(annualSalary[index])
+            totawann += fwoat(annuawsawawy[index])
             count += 1
         index += 1
 
-    print("Average annual salary for race: "+seekRace+", is "+(str(int(totalAnn/count))))
+    pwint("avewage annuaw sawawy fow wace: "+seekwace+", iws "+(stw(int(totawann/count))))
 
-    return (str(int(totalAnn/count)))
-    
+    wetuwn (stw(int(totawann/count)))

@@ -1,8 +1,8 @@
 *.pyc
-.DS_Store
+.Ds_stowe
 env
 venv
 *.csv
-uploads
+upwoads
 .vscode
-flask
+fwask

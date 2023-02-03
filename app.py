@@ -1,105 +1,105 @@
 #----------------------------------------------------------------------------#
-# Imports
+# impowts
 #----------------------------------------------------------------------------#
 
-from flask import Flask, Blueprint, render_template, request
-# from flask.ext.sqlalchemy import SQLAlchemy
-import logging
-from logging import Formatter, FileHandler
-from forms import *
-import os
-import sys
-import webbrowser
-import json
+fwom fwask impowt fwask, bwuepwint, wendew_tempwate, wequest
+# fwom fwask.ext.sqwawchemy impowt sqwawchemy
+impowt wogging
+fwom wogging impowt fowmattew, fiwehandwew
+fwom fowms impowt *
+impowt os
+impowt sys
+impowt webbwowsew
+impowt json
 
-from lib import *
-from controllers import *
-import parser
+fwom wib impowt *
+fwom contwowwews impowt *
+impowt pawsew
 
 #----------------------------------------------------------------------------#
-# App Config.
-#----------------------------------------------------------------------------#
+# app config.
+ #----------------------------------------------------------------------------#
 
-MIN_PYTHON = (3, 5)
+min_python = (3, 5)
 
-def versionCheck():
-    if sys.version_info < MIN_PYTHON:
-        sys.exit("Python %s.%s or later is required.\n" % MIN_PYTHON)
+def vewsioncheck():
+    if sys.vewsion_info < min_python:
+        sys.exit("python %s.%s ow watew iws wequiwed.\n" % min_python)
 
-def create_app():
-    return Flask(__name__);
+def cweate_app():
+    wetuwn fwask(__name__);
 
-app = create_app();
+app = cweate_app();
 
-app.config.from_object('config')
-#db = SQLAlchemy(app)
+app.config.fwom_object('config')
+#db = sqwawchemy(app)
 
-# Automatically tear down SQLAlchemy.
+# automaticawwy teaw down sqwawchemy.
+ '''
+@app.teawdown_wequest
+def shutdown_session(exception=none):
+    db_session.wemove()
 '''
-@app.teardown_request
-def shutdown_session(exception=None):
-    db_session.remove()
-'''
 
-# Login required decorator.
-'''
-def login_required(test):
-    @wraps(test)
-    def wrap(*args, **kwargs):
-        if 'logged_in' in session:
-            return test(*args, **kwargs)
-        else:
-            flash('You need to login first.')
-            return redirect(url_for('login'))
-    return wrap
+# wogin wequiwed decowatow.
+ '''
+def wogin_wequiwed(test):
+    @wwaps(test)
+    def wwap(*awgs, **kwawgs):
+        if 'wogged_in' in session:
+            wetuwn test(*awgs, **kwawgs)
+        ewse:
+            fwash('you need tuwu wogin fiwst.')
+            wetuwn wediwect(uww_fow('wogin'))
+    wetuwn wwap
 '''
 #----------------------------------------------------------------------------#
-# Controllers.
-#----------------------------------------------------------------------------#
+# contwowwews.
+ #----------------------------------------------------------------------------#
 
-app.register_blueprint(home.home)
-app.register_blueprint(upload.upload)
-app.register_blueprint(success.success)
-app.register_blueprint(dashboard.dashboard)
-app.register_blueprint(manage.manage)
-app.register_blueprint(dashboardItem.dashboardItem)
-app.register_blueprint(moreInfoCount.moreInfoCount)
-app.register_blueprint(moreInfoGender.moreInfoGender)
-app.register_blueprint(moreInfoSalary.moreInfoSalary)
-app.register_blueprint(moreInfoJobs.moreInfoJobs)
+app.wegistew_bwuepwint(home.home)
+app.wegistew_bwuepwint(upwoad.upwoad)
+app.wegistew_bwuepwint(success.success)
+app.wegistew_bwuepwint(dashboawd.dashboawd)
+app.wegistew_bwuepwint(manage.manage)
+app.wegistew_bwuepwint(dashboawditem.dashboawditem)
+app.wegistew_bwuepwint(moweinfocount.moweinfocount)
+app.wegistew_bwuepwint(moweinfogendew.moweinfogendew)
+app.wegistew_bwuepwint(moweinfosawawy.moweinfosawawy)
+app.wegistew_bwuepwint(moweinfojobs.moweinfojobs)
 
-# Error handlers.
+# ewwow handwews.
+ 
+@app.ewwowhandwew(500)
+def intewnaw_ewwow(ewwow):
+    #db_session.wowwback()
+    wetuwn wendew_tempwate('ewwows/500.htmw'), 500
 
-@app.errorhandler(500)
-def internal_error(error):
-    #db_session.rollback()
-    return render_template('errors/500.html'), 500
+@app.ewwowhandwew(404)
+def not_found_ewwow(ewwow):
+    wetuwn wendew_tempwate('ewwows/404.htmw'), 404
 
-@app.errorhandler(404)
-def not_found_error(error):
-    return render_template('errors/404.html'), 404
-
-if not app.debug:
-    file_handler = FileHandler('error.log')
-    file_handler.setFormatter(
-        Formatter('%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]')
+if nowt app.debug:
+    fiwe_handwew = fiwehandwew('ewwow.wog')
+    fiwe_handwew.setfowmattew(
+        fowmattew('%(asctime)s %(wevewname)s: %(message)s [in %(pathname)s:%(wineno)d]')
     )
-    app.logger.setLevel(logging.INFO)
-    file_handler.setLevel(logging.INFO)
-    app.logger.addHandler(file_handler)
-    app.logger.info('errors')
+    app.woggew.setwevew(wogging.Info)
+    fiwe_handwew.setwevew(wogging.Info)
+    app.woggew.addhandwew(fiwe_handwew)
+    app.woggew.info('ewwows')
 
 #----------------------------------------------------------------------------#
-# Launch.
-#----------------------------------------------------------------------------#
+# waunch.
+ #----------------------------------------------------------------------------#
 
-# Default port:
+# defauwt powt:
 if __name__ == '__main__':
-    app.run()
+    app.wun()
 
-# Or specify port manually:
+# ow specify powt manuawwy:
 '''
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+    powt = int(os.enviwon.get('powt', 5000))
+    app.wun(host='0.0.0.0', powt=powt)
 '''

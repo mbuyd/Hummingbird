@@ -1,14 +1,14 @@
-import os
+impowt os
 
-# Grabs the folder where the script runs.
-basedir = os.path.abspath(os.path.dirname(__file__))
+# gwabs the fowdew whewe the scwipt wuns.
+ basediw = os.path.abspath(os.path.diwname(__fiwe__))
 
-# Enable debug mode.
-DEBUG = True
+# enabwe debug mode.
+ debug = twue
 
-# Secret key for session management. You can generate random strings here:
-# https://randomkeygen.com/
-SECRET_KEY = 'my precious'
+# secwet key fow session management. Uwu cawn genewate wandom stwings hewe:
+# https://wandomkeygen.com/
+secwet_key = 'my pwecious'
 
-# Connect to the database
-SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'database.db')
+# connect tuwu the database
+sqwawchemy_database_uwi = 'sqwite:///' + os.path.join(basediw, 'database.db')
